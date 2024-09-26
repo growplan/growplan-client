@@ -37,13 +37,9 @@ asset 폴더에는 정적인 파일을 보관합니다.
 
 ### components
 JSX 문법으로 작성된 모듈을 보관합니다.
-주로 UI를 요소를 보관합니다. 기본적으로 유지보수성을 위해 atomic-design-pattern을 지향합니다.
+주로 UI를 요소를 보관합니다. 기본적으로 유지보수성을 위해 [atomic-design-pattern](https://yozm.wishket.com/magazine/detail/1531/)을 지향합니다.
 
-다만 FSD 아키텍처를 적극적으로 사용해야하는 상황이라면, 다른 `react-hook`이나 함수를 보관해도 무방합니다.
-
-- [Atomic 디자인 패턴이란?](https://yozm.wishket.com/magazine/detail/1531/)
-- [FSD 아키텍처란?](https://emewjin.github.io/feature-sliced-design/)
-
+다만 [FSD 아키텍처](https://emewjin.github.io/feature-sliced-design/)를 적극적으로 사용해야하는 상황이라면, 다른 `react-hook`이나 함수를 보관해도 무방합니다.
 
 ### interface
 interface는 `interface`, `type`, type-guard 함수 등을 보관합니다.
