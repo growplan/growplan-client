@@ -6,7 +6,7 @@ import Dashboard from ".";
 export default function Layout({ children }: { children: ReactNode }) {
   const container = {
     displays: "flex gap-x-3.5",
-    boundaries: "p-3.5",
+    boundaries: "p-5",
   };
   const body = {
     displays: "flex flex-col",
