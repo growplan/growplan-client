@@ -15,7 +15,7 @@ export function Header() {
   const location = useLocation();
   const isDashboard = location.pathname === "/dashboard";
   return (
-    <>
+    <div className="relative z-50">
       <div className="h-16" />
       <div className={cn(container)}>
         <img
@@ -31,6 +31,6 @@ export function Header() {
           }}
         />
       </div>
-    </>
+    </div>
   );
 }
