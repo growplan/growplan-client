@@ -3,8 +3,10 @@ import Card from "@/design/Card";
 import TitleBox from "@/design/TitleBox";
 import { cn } from "fast-jsx/util";
 import CheckBoxMolecule from "../molecule/CheckBox.molecule";
+import { useNavigate } from "react-router-dom";
 
 export default function CheckList() {
+  const router = useNavigate();
   const body = {
     displays: "flex flex-col gap-y-2",
     sizes: "w-full",
@@ -24,7 +26,7 @@ export default function CheckList() {
             key={survey.id}
             type={survey.type}
             script={survey.script}
-            onClick={() => {}}
+            onClick={() => router(`/surveys/${survey.type}`)}
           />
         ))}
       </div>

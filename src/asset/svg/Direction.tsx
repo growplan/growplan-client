@@ -1,6 +1,12 @@
-function Right() {
+import { OnClick } from "fast-jsx/interface";
+
+interface DirectionProps {
+  onClick?: OnClick;
+}
+function Right(props: DirectionProps) {
   return (
     <svg
+      onClick={props.onClick}
       width="23"
       height="23"
       viewBox="0 0 23 23"

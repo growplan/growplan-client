@@ -33,7 +33,7 @@ export default function CheckBoxMolecule(props: CheckBoxMoleculeProps) {
         />
         <div className="text-[14px]">{props.script}</div>
       </div>
-      <Svg.Direciton.Right />
+      <Svg.Direciton.Right onClick={props.onClick} />
     </div>
   );
 }
