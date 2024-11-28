@@ -12,6 +12,7 @@ export default function Card({ children }: CardProps) {
         width: "w-[353px]",
         boundary:
           "shadow-md shadow-[#6B7076]/50 rounded-[10px] overflow-hidden",
+        background: "bg-white",
         pressure: "pt-7",
       }}
     >
