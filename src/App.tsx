@@ -3,7 +3,7 @@ import { DashboardPage, DashboardLayout } from "./app/dashboard";
 import RootPage from "./app/page";
 import RootLayout from "./app/layout";
 import { RecordPage } from "./app/dashboard/records";
-import { SurveyPage } from "./app/dashboard/surveys";
+import { SurveyPage } from "./app/surveys";
 
 export default function App() {
   return (
