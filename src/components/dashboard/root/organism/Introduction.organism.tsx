@@ -2,7 +2,7 @@ import { childs } from "@/asset/user";
 import { Label } from "fast-jsx";
 import { cn } from "fast-jsx/util";
 
-export default function IntroductionMolecule() {
+export default function Introduction() {
   const child = childs[0];
   const container = {
     sizes: "w-[353px] h-[139px]",
