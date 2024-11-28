@@ -8,7 +8,17 @@ export default {
     "./index.html",
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
-  theme,
+  theme: {
+    ...theme,
+    extend: {
+      ...theme.extend,
+      colors: {
+        ...theme.extend.colors,
+        "blue-5": "#699BFF",
+        "black-8": "#414D63",
+      },
+    },
+  },
   plugins,
   darkMode: "selector",
 } satisfies Config;
