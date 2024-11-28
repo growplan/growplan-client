@@ -12,9 +12,14 @@ export default {
     ...theme,
     extend: {
       ...theme.extend,
+      fontFamily: {
+        ...theme.extend.fontFamily,
+        "pretendard-var": ["pretendard-var"],
+      },
       colors: {
         ...theme.extend.colors,
         "blue-5": "#699BFF",
+        "black-4": "#AFB9CA",
         "black-8": "#414D63",
       },
     },

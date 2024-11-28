@@ -11,3 +11,8 @@
 .box-shadow {
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
 }
+
+@font-face {
+  font-family: "pretendard-var";
+  src: url("/fonts/PretendardVariable.ttf") format("truetype");
+}
