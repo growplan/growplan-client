@@ -10,7 +10,8 @@ export default function Card({ children }: CardProps) {
       option={{
         display: "items-center",
         width: "w-[353px]",
-        boundary: "shadow-md rounded-[10px]",
+        boundary:
+          "shadow-md shadow-[#6B7076]/50 rounded-[10px] overflow-hidden",
         pressure: "pt-7",
       }}
     >
