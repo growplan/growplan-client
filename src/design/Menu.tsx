@@ -8,28 +8,31 @@ interface Route {
   href: string;
   icon?: ReactNode;
 }
-const routes: Route[] = [
-  {
-    title: "홈",
-    href: "/dashboard",
-    icon: <Svg.Icon.Home />,
-  },
-  {
-    title: "기록",
-    href: "/dashboard/records",
-    icon: <Svg.Icon.Record />,
-  },
-  {
-    title: "센터",
-    href: "/dashboard/centers",
-    icon: <Svg.Icon.Center />,
-  },
-  {
-    title: "마이",
-    href: "/dashboard/config",
-    icon: <Svg.Icon.MyPage />,
-  },
-];
+const routes = (path: string): Route[] => {
+  const isSelected = (href: string) => path === href;
+  return [
+    {
+      title: "홈",
+      href: "/dashboard",
+      icon: <Svg.Navi.Home isSelected={isSelected("/dashboard")} />,
+    },
+    {
+      title: "기록",
+      href: "/dashboard/records",
+      icon: <Svg.Navi.Record isSelected={isSelected("/dashboard/records")} />,
+    },
+    {
+      title: "센터",
+      href: "/dashboard/centers",
+      icon: <Svg.Navi.Center isSelected={isSelected("/dashboard/centers")} />,
+    },
+    {
+      title: "마이",
+      href: "/dashboard/config",
+      icon: <Svg.Navi.MyPage isSelected={isSelected("/dashboard/config")} />,
+    },
+  ];
+};
 export default function Menu() {
   const router = useNavigate();
   const location = useLocation();
@@ -50,8 +53,9 @@ export default function Menu() {
   });
   return (
     <div className={cn(container)}>
-      {routes.map(({ title, href, icon }) => (
+      {routes(location.pathname).map(({ title, href, icon }) => (
         <button
+          key={href}
           onClick={() => {
             router(href);
           }}
