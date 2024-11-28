@@ -12,15 +12,18 @@ export default function HeaderMolecule() {
     positions: "relative",
     displays: "flex justify-center items-center",
     sizes: "h-[68px]",
+    backgrounds: "bg-white",
   };
   return (
-    <div className={cn(container)}>
-      <Svg.Direciton.Left
-        onClick={() => window.history.back()}
-        className="absolute left-5"
-      />
-      <div>
-        {developmentTypeString[surveyType as DevelopmentType]} 체크리스트
+    <div className="fixed top-0 left-0 w-full">
+      <div className={cn(container)}>
+        <Svg.Direciton.Left
+          onClick={() => window.history.back()}
+          className="absolute left-5"
+        />
+        <div>
+          {developmentTypeString[surveyType as DevelopmentType]} 체크리스트
+        </div>
       </div>
     </div>
   );
