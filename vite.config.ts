@@ -7,7 +7,7 @@ export default ({ mode }: ConfigEnv) => {
       alias: [{ find: "@", replacement: "/src" }],
     },
     build: {
-      outDir: "build",
+      outDir: "dist",
     },
     define: {
       "process.env": process.env,
