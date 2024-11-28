@@ -1,7 +1,7 @@
-import Icon from "./svg/Icon";
+import Navi from "./svg/Navi";
 import Direciton from "./svg/Direction";
 const Svg = {
-  Icon,
+  Navi,
   Direciton,
 };
 export default Svg;
