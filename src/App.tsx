@@ -1,38 +1,21 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { ComponentType, Fragment } from "react";
-import useRoute from "@/hook/useRoute";
+import { DashboardPage, DashboardLayout } from "./app/dashboard";
+import RootPage from "./app/page";
+import RootLayout from "./app/layout";
+import { RecordPage } from "./app/dashboard/records";
 
 export default function App() {
-  const routes = useRoute();
   return (
     <BrowserRouter>
       <Routes>
-        {routes.map(({ path, component, layout }) => {
-          return (
-            <Route
-              key={path}
-              path={path}
-              element={RenderComponent(component, layout)}
-            />
-          );
-        })}
-        <Route
-          path="*"
-          element={
-            <div className="flex justify-center items-center w-full min-h-screen">
-              LOADING
-            </div>
-          }
-        />
+        <Route path="/" element={<RootLayout />}>
+          <Route index element={<RootPage />} />
+        </Route>
+        <Route path="/dashboard" element={<DashboardLayout />}>
+          <Route index element={<DashboardPage />} />
+          <Route path="records" element={<RecordPage />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
-}
-
-function RenderComponent(
-  Component: ComponentType<any>,
-  Layout: ComponentType<any> | null
-) {
-  if (Layout) return <Layout children={<Component />} />;
-  return <Fragment children={<Component />} />;
 }

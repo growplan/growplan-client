@@ -1,5 +1,9 @@
 import Dashboard from "@/components/dashboard";
-import { ReactNode } from "react";
-export default function Layout({ children }: { children: ReactNode }) {
-  return <Dashboard.Layout>{children}</Dashboard.Layout>;
+import { Outlet } from "react-router-dom";
+export default function Layout() {
+  return (
+    <Dashboard.Layout>
+      <Outlet />
+    </Dashboard.Layout>
+  );
 }

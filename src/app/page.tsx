@@ -1,6 +1,6 @@
 import { cn } from "fast-jsx/util";
 
-export default function GrowPlanPage() {
+export default function RootPage() {
   const container = {
     displays:
       "flex flex-col gap-y-32 lg:flex-row justify-center lg:justify-between items-center",

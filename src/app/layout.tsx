@@ -1,10 +1,9 @@
-import { ReactNode, useEffect } from "react";
+import { ReactNode } from "react";
 import { cn } from "fast-jsx/util";
-import { Button } from "fast-jsx/widget";
-import { useNavigate, useLocation } from "react-router-dom";
-import { Header } from "@/components/Header";
+import { Outlet } from "react-router-dom";
+import { Header } from "@/design/Header";
 
-export default function GrowPlanLayout({ children }: { children: ReactNode }) {
+export default function RootLayout() {
   const container = {
     displays: "flex flex-col ",
     sizes: "w-full min-h-screen",
@@ -15,7 +14,7 @@ export default function GrowPlanLayout({ children }: { children: ReactNode }) {
   return (
     <div className={cn(container)}>
       <Header />
-      {children}
+      <Outlet />
     </div>
   );
 }
