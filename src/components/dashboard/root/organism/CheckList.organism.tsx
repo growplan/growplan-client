@@ -3,16 +3,15 @@ import Card from "@/design/Card";
 import TitleBox from "@/design/TitleBox";
 import { Button } from "fast-jsx";
 import { cn } from "fast-jsx/util";
+import CheckBoxMolecule from "../molecule/CheckBox.molecule";
 
 export default function CheckList() {
   const body = {
-    displays: "flex flex-col gap-y-1.5",
+    displays: "flex flex-col gap-y-2",
+    sizes: "w-full",
+    boundareis: "px-[26px] mt-[24px]",
   };
-  const box = {
-    displays: "flex ",
-    backgrounds: "bg-gray-400",
-    fonts: "text-white",
-  };
+
   return (
     <Card>
       <TitleBox
@@ -22,7 +21,12 @@ export default function CheckList() {
       />
       <div className={cn(body)}>
         {surveys.map((survey) => (
-          <div className={cn(box)}>{survey.script}</div>
+          <CheckBoxMolecule
+            key={survey.id}
+            type={survey.type}
+            script={survey.script}
+            onClick={() => {}}
+          />
         ))}
       </div>
       <Button title="아이의 발달의 상태 기록하기" onClick={() => {}} />
