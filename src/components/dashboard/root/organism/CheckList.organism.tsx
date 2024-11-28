@@ -1,6 +1,6 @@
 import { surveys } from "@/asset/development";
 import Card from "@/design/Card";
-import TitleBox from "@/design/Titles";
+import TitleBox from "@/design/TitleBox";
 import { Button } from "fast-jsx";
 import { cn } from "fast-jsx/util";
 

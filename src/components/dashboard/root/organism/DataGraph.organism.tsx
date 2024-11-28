@@ -1,5 +1,5 @@
 import Card from "@/design/Card";
-import TitleBox from "@/design/Titles";
+import TitleBox from "@/design/TitleBox";
 import { Label } from "fast-jsx";
 import Graph from "fast-jsx/graph";
 import moment from "moment-timezone";
