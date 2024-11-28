@@ -21,14 +21,7 @@ export function Header() {
         <img
           src="/images/logos/growplan.png"
           onClick={() => router("/")}
-          width={100}
-        />
-        <Button
-          title={isDashboard ? "홈으로" : "대시보드"}
-          onClick={() => router(isDashboard ? "/" : "/dashboard")}
-          option={{
-            background: "bg-[#4163f6]",
-          }}
+          width={120.5}
         />
       </div>
     </div>
