@@ -1,7 +1,6 @@
 import { surveys } from "@/asset/development";
 import Card from "@/design/Card";
 import TitleBox from "@/design/TitleBox";
-import { Button } from "fast-jsx";
 import { cn } from "fast-jsx/util";
 import CheckBoxMolecule from "../molecule/CheckBox.molecule";
 
@@ -9,7 +8,7 @@ export default function CheckList() {
   const body = {
     displays: "flex flex-col gap-y-2",
     sizes: "w-full",
-    boundareis: "px-[26px] mt-[24px]",
+    boundareis: "px-[26px] mt-[24px] pb-[28px]",
   };
 
   return (
@@ -29,7 +28,6 @@ export default function CheckList() {
           />
         ))}
       </div>
-      <Button title="아이의 발달의 상태 기록하기" onClick={() => {}} />
     </Card>
   );
 }

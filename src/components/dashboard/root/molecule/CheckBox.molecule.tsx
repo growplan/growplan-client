@@ -1,5 +1,9 @@
 import Svg from "@/asset/Svg";
-import { DevelopmentType } from "@/interface/Development";
+import {
+  DevelopmentType,
+  developmentTypeString,
+} from "@/interface/Development";
+import { Label } from "fast-jsx";
 import { OnClick } from "fast-jsx/interface";
 import { cn } from "fast-jsx/util";
 
@@ -18,9 +22,16 @@ export default function CheckBoxMolecule(props: CheckBoxMoleculeProps) {
   };
   return (
     <div className={cn(container)}>
-      <div className="flex items-center">
-        <div>{props.type}</div>
-        <div>{props.script}</div>
+      <div className="flex items-center gap-x-2">
+        <Label
+          title={developmentTypeString[props.type]}
+          option={{
+            width: "w-[50px]",
+            height: "h-[23px]",
+            background: "bg-blue-5",
+          }}
+        />
+        <div className="text-[14px]">{props.script}</div>
       </div>
       <Svg.Direciton.Right />
     </div>
