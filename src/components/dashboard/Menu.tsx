@@ -11,15 +11,15 @@ export default function Menu() {
       href: "/dashboard",
     },
     {
-      title: "측정",
-      href: "/dashboard/measure",
-    },
-    {
       title: "기록",
       href: "/dashboard/records",
     },
     {
-      title: "설정",
+      title: "센터",
+      href: "/dashboard/centers",
+    },
+    {
+      title: "마이",
       href: "/dashboard/config",
     },
   ];
