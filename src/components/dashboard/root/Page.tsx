@@ -8,7 +8,7 @@ export default function DashboardPage() {
       option={{
         background: "bg-white",
         display: "gap-y-8",
-        boundary: "rounded-md",
+        boundary: "rounded-md pb-25",
       }}
     >
       <Introduction />

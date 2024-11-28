@@ -1,4 +1,5 @@
-type DevelopmentType = "LM" | "GM" | "SH" | "CG" | "LG" | "SC";
+import { DevelopmentType } from "@/interface/Development";
+
 interface Survey {
   id: number;
   type: DevelopmentType;

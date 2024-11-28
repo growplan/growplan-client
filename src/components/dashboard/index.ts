@@ -1,5 +1,5 @@
 import Layout from "./Layout";
-import Menu from "./Menu";
+import Menu from "../../design/Menu";
 
 const Dashboard = {
   Layout,
