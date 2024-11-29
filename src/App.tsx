@@ -4,6 +4,7 @@ import RootPage from "./app/page";
 import RootLayout from "./app/layout";
 import { RecordPage } from "./app/dashboard/records";
 import { SurveyPage } from "./app/surveys";
+import { AuthPage, SignInPage } from "./app/sign-in";
 
 export default function App() {
   return (
@@ -18,6 +19,10 @@ export default function App() {
         </Route>
         <Route path="/surveys/:surveyType">
           <Route index element={<SurveyPage />} />
+        </Route>
+        <Route path="/sign-in">
+          <Route index element={<SignInPage />} />
+          <Route path="auth/:provider" element={<AuthPage />} />
         </Route>
         <Route path="*" element={<div>404</div>} />
       </Routes>
