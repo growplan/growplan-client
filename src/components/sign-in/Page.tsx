@@ -1,7 +1,5 @@
 import auth from "@/config/auth";
-import { signApi } from "@/connection";
 import { Button } from "fast-jsx";
-import { useMutation } from "react-query";
 
 export default function SignInPage() {
   return (

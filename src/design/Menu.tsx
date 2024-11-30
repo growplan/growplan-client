@@ -28,8 +28,8 @@ const routes = (path: string): Route[] => {
     },
     {
       title: "마이",
-      href: "/dashboard/config",
-      icon: <Svg.Navi.MyPage isSelected={isSelected("/dashboard/config")} />,
+      href: "/dashboard/mypage",
+      icon: <Svg.Navi.MyPage isSelected={isSelected("/dashboard/mypage")} />,
     },
   ];
 };

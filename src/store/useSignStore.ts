@@ -13,7 +13,7 @@ const useSignStore = create(
       setSign: (sign) => set({ sign }),
     }),
     {
-      name: "signStorage",
+      name: "growplan.signStorage",
     }
   )
 );

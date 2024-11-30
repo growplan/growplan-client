@@ -1,3 +1,5 @@
-export default function RecordPage() {
-  return <div>asdf</div>;
+import RecordPage from "@/components/dashboard/record/Page";
+
+export default function Page() {
+  return <RecordPage />;
 }

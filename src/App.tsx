@@ -5,6 +5,8 @@ import RootLayout from "./app/layout";
 import { RecordPage } from "./app/dashboard/records";
 import { SurveyPage } from "./app/surveys";
 import { AuthPage, SignInPage } from "./app/sign-in";
+import { MyPagePage } from "./app/dashboard/mypage";
+import { CenterPage } from "./app/dashboard/centers";
 
 export default function App() {
   return (
@@ -16,6 +18,8 @@ export default function App() {
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<DashboardPage />} />
           <Route path="records" element={<RecordPage />} />
+          <Route path="centers" element={<CenterPage />} />
+          <Route path="mypage" element={<MyPagePage />} />
         </Route>
         <Route path="/surveys/:surveyType">
           <Route index element={<SurveyPage />} />
