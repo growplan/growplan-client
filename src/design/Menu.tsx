@@ -42,6 +42,7 @@ export default function Menu() {
     backgrounds: "bg-white",
     sizes: "w-full md:w-[16%] min-w-32 h-[96px]",
     styles: "overflow-hidden rounded-t-xl",
+    shadows: "box-shadow",
   };
   const button = (isSelected: boolean) => ({
     displays: "flex flex-col items-center",
