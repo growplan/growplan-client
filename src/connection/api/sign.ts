@@ -17,7 +17,6 @@ async function postAuth({
       params: {
         code,
       },
-      validateStatus: (status) => status < 300,
     }
   );
   return response.data;
