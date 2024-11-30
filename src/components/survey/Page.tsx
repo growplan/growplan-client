@@ -1,12 +1,19 @@
-import { useParams } from "react-router-dom";
 import SurveyLayout from "./Layout";
-import NoticeOrganism from "./organism/Notice.organism";
+import Notice from "./template/Notice.template";
+import { Action } from "fast-jsx";
+import Ongoing from "./template/Ongoing.template";
 
 export default function SurveyPage() {
-  const { surveyType } = useParams();
   return (
     <SurveyLayout>
-      <NoticeOrganism />
+      <Action.Replace
+        actions={[
+          ["notice", <Notice />],
+          ["ongoing", <Ongoing />],
+        ]}
+      >
+        <Notice />
+      </Action.Replace>
     </SurveyLayout>
   );
 }
