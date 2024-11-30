@@ -10,8 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "axios-wizard": "^1.0.2",
-    "fast-jsx": "^0.0.10",
+    "axios-wizard": "^1.0.3",
+    "fast-jsx": "^0.0.11",
     "moment-timezone": "^0.5.46",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
