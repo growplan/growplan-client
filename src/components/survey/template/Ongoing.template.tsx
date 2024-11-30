@@ -5,8 +5,11 @@ import { checks } from "../check";
 import Svg from "@/asset/Svg";
 import { OnClick } from "fast-jsx/interface";
 import { useState } from "react";
+import { useActionStore } from "fast-jsx/store";
 
 export default function Ongoing() {
+  const { clearView, setView } = useActionStore();
+  const [now, setNow] = useState<number>(1);
   const [isChecked, setIsChecked] = useState<number>();
   const container = {
     displays: "flex flex-col items-center",
@@ -20,7 +23,7 @@ export default function Ongoing() {
           gap: "gap-y-12",
         }}
       >
-        <Numbering now={1} total={8} />
+        <Numbering now={now} total={8} />
         <div className="text-lg font-bold">
           그려진 점선을 따라 그릴 수 있다.
         </div>
@@ -35,7 +38,17 @@ export default function Ongoing() {
           ))}
         </div>
       </Card>
-      <ButtonContainerMolecule title="다음으로" onClick={() => {}} />
+      <ButtonContainerMolecule
+        title={now !== 8 ? "다음으로" : "제출하기"}
+        onClick={() => {
+          if (now === 8) {
+            clearView();
+            setView("submit");
+          }
+          setNow(now + 1);
+          setIsChecked(undefined);
+        }}
+      />
     </div>
   );
 }
@@ -68,10 +81,12 @@ function Checking({
     paddings: "px-5 py-4",
     boundaries: "rounded-[10px]",
     backgrounds: "bg-blue-1",
+    styles: "border-2",
+    borders: isChecked ? "border-blue-5" : "border-blue-1",
   };
   return (
     <div onClick={onClick} className={cn(container)}>
-      <div>{script}</div>
+      <div className="text-[14px] font-bold">{script}</div>
       <Svg.Icon.Check isChecked={isChecked} />
     </div>
   );
