@@ -24,7 +24,7 @@ export default function SignInPage() {
   };
   const body = {
     displays: "flex flex-col",
-    sizes: "w-full max-w-[393px] min-h-screen",
+    sizes: "w-full max-w-[393px] min-h-[640px]",
     boundaries: "px-5 pb-4",
   };
   return (
