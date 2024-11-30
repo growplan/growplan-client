@@ -1,14 +1,8 @@
+import { AuthResponse } from "@/interface/Sign";
 import httpRequest from "../axios";
 
 const api = httpRequest.api();
-interface AuthResponse {
-  id: number;
-  email: string;
-  socialLoginType: string;
-  isAdditionalSignup: boolean;
-  accessToken: string;
-  refreshToken: string;
-}
+
 async function postAuth({
   provider,
   code,

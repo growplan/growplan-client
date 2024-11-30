@@ -1,4 +1,4 @@
-import { OAuthType } from "@/interface/OAuth";
+import { OAuthType } from "@/interface/Sign";
 
 const {
   VITE_OAUTH_NAVER_ORIGIN: naverOrigin,

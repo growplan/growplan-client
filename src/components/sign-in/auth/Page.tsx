@@ -1,5 +1,5 @@
 import { signApi } from "@/connection";
-import { isOAuthType } from "@/interface/OAuth";
+import { isOAuthType } from "@/interface/Sign";
 import { useEffect } from "react";
 import { useMutation } from "react-query";
 import { useParams, useSearchParams } from "react-router-dom";
@@ -11,7 +11,7 @@ export default function AuthPage() {
   if (!provider || !isOAuthType(provider)) return null;
   if (!code) return null;
 
-  const { mutate, isSuccess } = useMutation({
+  const { data, mutate, isSuccess } = useMutation({
     mutationKey: ["postAuth"],
     mutationFn: () =>
       signApi.postAuth({
@@ -24,7 +24,8 @@ export default function AuthPage() {
   }, []);
   useEffect(() => {
     if (isSuccess) {
-      window.location.href = "/";
+      console.log(data);
+      // window.location.href = "/";
     }
   }, [isSuccess]);
   return <div>{provider}</div>;
