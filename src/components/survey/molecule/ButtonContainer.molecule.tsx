@@ -1,7 +1,16 @@
 import { Button } from "fast-jsx";
 import { cn } from "fast-jsx/util";
+import { OnClick } from "fast-jsx/interface";
 
-export default function ButtonContainerMolecule() {
+interface ButtonContainerMoleculeProps {
+  title: string;
+  onClick: OnClick;
+}
+
+export default function ButtonContainerMolecule({
+  title,
+  onClick,
+}: ButtonContainerMoleculeProps) {
   const container = {
     fixed: "fixed bottom-0",
     displays: "flex items-center",
@@ -18,8 +27,8 @@ export default function ButtonContainerMolecule() {
     <>
       <div className={cn(container)}>
         <Button
-          title="시작하기"
-          onClick={() => console.log("시작하기")}
+          title={title}
+          onClick={onClick}
           option={{
             width: "w-full",
             height: "h-[60px]",
