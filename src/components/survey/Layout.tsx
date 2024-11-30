@@ -20,7 +20,6 @@ export default function SurveyLayout({
     <div className={cn(container)}>
       <HeaderMolecule />
       <div className={cn(body)}>{children}</div>
-      <ButtonContainerMolecule />
     </div>
   );
 }
