@@ -15,8 +15,8 @@ export default function CheckListMenual() {
     >
       <div className="font-bold">체크리스트 사용법</div>
       <div className="bg-white/60 w-full rounded-md grid grid-cols-2 gap-x-3.5 py-3.5 px-3">
-        {checks.map(({ id, script }) => (
-          <CheckButton key={id} script={script} />
+        {checks.map(({ point, script }) => (
+          <CheckButton key={point} script={script} />
         ))}
       </div>
       <Notification />
