@@ -2,7 +2,7 @@ export interface Child {
   id: number;
   name: string;
   birthdate: string;
-  gender: string;
+  gender: "남자" | "여자";
   bornHeight: number;
   bornWeight: number;
   isPremature: boolean;
