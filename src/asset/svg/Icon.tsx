@@ -97,8 +97,36 @@ function Heart({ isChecked = false }: { isChecked?: boolean }) {
   );
 }
 
+function Writing() {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M3 19.497C3 20.6016 3.89543 21.497 5 21.497H19.46C20.5646 21.497 21.46 20.6016 21.46 19.497V5C21.46 3.89543 20.5646 3 19.46 3H5C3.89543 3 3 3.89543 3 5V19.497Z"
+        fill="#699BFF"
+      />
+      <path
+        d="M12.6291 8.71438L15.3756 11.4609L17.0899 9.74649L14.3434 7L12.6291 8.71438Z"
+        fill="#292E3A"
+      />
+      <path
+        d="M6.99994 14.3443L7.00231 17.0876L9.74564 17.0908L14.5358 12.3007L11.7901 9.55416L6.99994 14.3443Z"
+        fill="#292E3A"
+      />
+    </svg>
+  );
+}
+
 const Icon = {
   Check,
   Heart,
+  Writing,
 };
 export default Icon;
