@@ -2,7 +2,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { DashboardPage, DashboardLayout } from "./app/dashboard";
 import RootPage from "./app/page";
 import RootLayout from "./app/layout";
-import { RecordPage, RecordPageById } from "./app/dashboard/records";
+import {
+  RecordPage,
+  RecordPageById,
+  RecordPostPage,
+} from "./app/dashboard/records";
 import { SurveyPage } from "./app/surveys";
 import { AuthPage, SignInPage } from "./app/sign-in";
 import { MyPagePage } from "./app/dashboard/mypage";
@@ -20,6 +24,7 @@ export default function App() {
           <Route path="records">
             <Route index element={<RecordPage />} />
             <Route path=":recordId" element={<RecordPageById />} />
+            <Route path="post" element={<RecordPostPage />} />
           </Route>
           <Route path="centers" element={<CenterPage />} />
           <Route path="mypage" element={<MyPagePage />} />
