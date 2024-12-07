@@ -81,7 +81,6 @@ function Checking({
     paddings: "px-5 py-4",
     boundaries: "rounded-[10px]",
     backgrounds: "bg-blue-1",
-    styles: "border-2",
     borders: isChecked ? "border-blue-5" : "border-blue-1",
   };
   return (

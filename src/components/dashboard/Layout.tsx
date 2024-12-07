@@ -12,7 +12,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   };
   const body = {
     displays: "flex flex-col",
-    sizes: "w-full h-[600px]",
+    sizes: "w-full",
   };
   return (
     <div>

@@ -37,16 +37,16 @@ export default function Menu() {
   const router = useNavigate();
   const location = useLocation();
   const container = {
-    positions: "fixed bottom-0 left-0 md:static",
-    displays: "flex md:flex-col gap-y-0.5",
+    positions: "fixed bottom-0 left-0",
+    displays: "flex  gap-y-0.5",
     backgrounds: "bg-white",
-    sizes: "w-full md:w-[16%] min-w-32 h-[96px]",
+    sizes: "w-full min-w-32",
     styles: "overflow-hidden rounded-t-xl",
     shadows: "box-shadow",
   };
   const button = (isSelected: boolean) => ({
     displays: "flex flex-col items-center",
-    sizes: "w-full md:w-auto",
+    sizes: "w-full",
     animations: "duration-500",
     fonts: "text-[12px]",
     texts: isSelected ? "text-blue-5" : "text-black-4",

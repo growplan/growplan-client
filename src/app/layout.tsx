@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import { cn } from "fast-jsx/util";
 import { Outlet } from "react-router-dom";
 import { Header } from "@/design/Header";

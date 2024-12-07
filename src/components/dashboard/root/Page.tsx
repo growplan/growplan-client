@@ -6,7 +6,7 @@ export default function DashboardPage() {
   return (
     <Shelf.Col
       option={{
-        display: "gap-y-8",
+        display: "gap-y-8 flex",
         boundary: "rounded-md pb-[156px]",
       }}
     >
