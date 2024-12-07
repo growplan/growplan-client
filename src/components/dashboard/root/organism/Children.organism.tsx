@@ -15,7 +15,6 @@ export default function Children() {
   const titleBox = {
     displays: "flex gap-x-1.5 items-end",
   };
-  console.log(childs);
   return (
     <Action.Show actions={[["createChild", <CreateChildModal />]]}>
       {childs?.map((children) => (
