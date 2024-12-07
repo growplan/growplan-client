@@ -5,10 +5,10 @@ import { calculateWeeksSince } from "@/util/calculate";
 const api = httpRequest.api();
 
 async function getChilds(userId: number) {
-  const response = await api.get<{ childern: Child[] }>(
+  const response = await api.get<{ children: Child[] }>(
     `/users/${userId}/childs`
   );
-  return response.data.childern;
+  return response.data.children;
 }
 
 async function postChild(
