@@ -6,7 +6,11 @@ import { matchPath, useLocation } from "react-router-dom";
 
 export default function Layout({ children }: { children: ReactNode }) {
   const location = useLocation();
-  const exceptions = ["/dashboard/records/:recordId"];
+  const headerExceptions = ["/dashboard/records/:recordId"];
+  const exceptions = ["/dashboard/records/post"];
+  const isHeaderException = [...headerExceptions, ...exceptions].some((path) =>
+    matchPath({ path }, location.pathname)
+  );
   const isException = exceptions.some((path) =>
     matchPath({ path }, location.pathname)
   );
@@ -22,9 +26,9 @@ export default function Layout({ children }: { children: ReactNode }) {
   };
   return (
     <div>
-      {!isException && <Header />}
+      {!isHeaderException && <Header />}
       <div className={cn(container)}>
-        <Dashboard.Menu />
+        {!isException && <Dashboard.Menu />}
         <div className={cn(body)}>{children}</div>
       </div>
     </div>
