@@ -17,13 +17,13 @@ export default function Card({ children, option }: CardProps) {
         display: [option?.gap, "items-center"].filter((v) => v).join(" "),
         width: "w-[353px]",
         boundary: [
-          option?.boundary ?? "shadow-md shadow-[#6B7076]/50",
+          option?.boundary ?? "box-shadow",
           "rounded-[10px] overflow-hidden",
         ]
           .filter((v) => v)
           .join(" "),
         background: option?.background ?? "bg-white",
-        pressure: [option?.pressure, "pt-7"].filter((v) => v).join(" "),
+        pressure: [option?.pressure ?? "pt-7"].filter((v) => v).join(" "),
       }}
     >
       {children}
