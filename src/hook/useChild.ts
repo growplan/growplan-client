@@ -1,3 +1,45 @@
+import { create } from "zustand";
+import { userApi } from "@/connection";
+import { useMutation, useQuery } from "react-query";
+import useSign from "./useSign";
+import { Child } from "@/interface/Child";
+import { useEffect, useState } from "react";
+
+interface ChildStore {
+  store: {
+    child?: Child;
+  };
+  setStore: (store: { child?: Child }) => void;
+}
+
+const useChildStore = create<ChildStore>((set) => ({
+  store: { selectedChild: undefined },
+  setStore: (store) => set({ store }),
+}));
+
 export default function useChild() {
-  return {};
+  const [selectedChild, setSelectedChild] = useState<Child>();
+  const { store, setStore } = useChildStore();
+  const { sign } = useSign();
+  const { data: childs, mutate } = useMutation({
+    mutationKey: ["getChilds"],
+    mutationFn: (userId: number) => userApi.child.get(userId),
+    onSuccess: (childs) => {
+      if (childs.length > 0) {
+        setSelectedChild(childs[0]);
+      }
+    },
+  });
+  useEffect(() => {
+    if (sign && !childs) {
+      mutate(sign.id);
+    }
+  }, [sign]);
+  useEffect(() => {
+    if (selectedChild) {
+      setStore({ child: selectedChild });
+    }
+  }, [selectedChild]);
+
+  return { childs, selectedChild, setSelectedChild, store };
 }
