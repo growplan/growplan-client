@@ -12,8 +12,8 @@ function Home({ isSelected }: IconProps) {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M17.3013 3.78968C16.5524 3.14795 15.4475 3.14795 14.6986 3.78968L1.92771 14.7329C1.50818 15.0924 1.45993 15.7243 1.81963 16.1436C2.17908 16.5627 2.81037 16.6114 3.2296 16.2522L4.79064 14.9146V27.3252C4.79064 28.4298 5.68607 29.3252 6.79064 29.3252H25.2133C26.3179 29.3252 27.2133 28.4298 27.2133 27.3252V14.9172L28.7703 16.2519C29.1895 16.6113 29.8209 16.5626 30.1804 16.1435C30.5401 15.7242 30.4918 15.0924 30.0722 14.7329L17.3013 3.78968Z"
         fill={isSelected ? "#699BFF" : "#AFB9CA"}
       />
@@ -35,8 +35,8 @@ function Record({ isSelected }: IconProps) {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M4 26.6627C4 27.7672 4.89543 28.6627 6 28.6627H26.6133C27.7179 28.6627 28.6133 27.7672 28.6133 26.6627V6C28.6133 4.89543 27.7179 4 26.6133 4H6C4.89543 4 4 4.89543 4 6V26.6627Z"
         fill={isSelected ? "#699BFF" : "#AFB9CA"}
       />
@@ -62,8 +62,8 @@ function Center({ isSelected }: IconProps) {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M28.6068 4.30027C28.4306 4.11593 28.1661 4.0457 27.9216 4.11837L4.45313 11.0957L4.42669 11.1057C4.16982 11.2033 4 11.4495 4 11.7243C4 11.9452 4.1103 12.1516 4.29402 12.2744L13.3411 18.3205L14.0453 18.787L14.6689 19.6774L20.6646 28.6489L20.6862 28.6765C20.8108 28.8364 21.0021 28.9299 21.2048 28.9299C21.4962 28.9299 21.7528 28.738 21.8353 28.4585L28.7767 4.93917L28.7866 4.87754C28.8202 4.66758 28.7537 4.45398 28.6068 4.30027Z"
         fill={isSelected ? "#699BFF" : "#AFB9CA"}
       />
@@ -95,9 +95,9 @@ function MyPage({ isSelected }: IconProps) {
       <path
         d="M9.61334 21.3333C11.0133 23.3466 13.36 24.6666 16 24.6666C18.64 24.6666 20.9733 23.3466 22.3867 21.3333"
         stroke="#292D32"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
