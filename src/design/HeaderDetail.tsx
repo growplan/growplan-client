@@ -1,9 +1,7 @@
 import Svg from "@/asset/Svg";
 import { cn } from "fast-jsx/util";
-import { useParams } from "react-router-dom";
 
 export default function HeaderDetail({ title }: { title: string }) {
-  const { surveyType } = useParams();
   const container = {
     positions: "relative",
     displays: "flex justify-center items-center",
