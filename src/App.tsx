@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { DashboardPage, DashboardLayout } from "./app/dashboard";
 import RootPage from "./app/page";
 import RootLayout from "./app/layout";
-import { RecordPage } from "./app/dashboard/records";
+import { RecordPage, RecordPageById } from "./app/dashboard/records";
 import { SurveyPage } from "./app/surveys";
 import { AuthPage, SignInPage } from "./app/sign-in";
 import { MyPagePage } from "./app/dashboard/mypage";
@@ -17,7 +17,10 @@ export default function App() {
         </Route>
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<DashboardPage />} />
-          <Route path="records" element={<RecordPage />} />
+          <Route path="records">
+            <Route index element={<RecordPage />} />
+            <Route path=":recordId" element={<RecordPageById />} />
+          </Route>
           <Route path="centers" element={<CenterPage />} />
           <Route path="mypage" element={<MyPagePage />} />
         </Route>
