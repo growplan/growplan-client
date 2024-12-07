@@ -9,7 +9,7 @@ export default function CheckListMenual() {
       option={{
         background: "bg-blue-1",
         boundary: "",
-        pressure: "px-3 pb-5",
+        pressure: "px-3 py-5",
         gap: "gap-y-4",
       }}
     >

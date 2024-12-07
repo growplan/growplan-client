@@ -19,7 +19,7 @@ export default function Ongoing() {
     <div className={cn(container)}>
       <Card
         option={{
-          pressure: "px-5 pb-7",
+          pressure: "px-5 py-7",
           gap: "gap-y-12",
         }}
       >
