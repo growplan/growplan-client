@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 import { userApi } from "@/connection";
 import { useMutation, useQuery } from "react-query";
 import useSign from "./useSign";
@@ -12,10 +13,17 @@ interface ChildStore {
   setStore: (store: { child?: Child }) => void;
 }
 
-const useChildStore = create<ChildStore>((set) => ({
-  store: { selectedChild: undefined },
-  setStore: (store) => set({ store }),
-}));
+const useChildStore = create(
+  persist<ChildStore>(
+    (set) => ({
+      store: { selectedChild: undefined },
+      setStore: (store) => set({ store }),
+    }),
+    {
+      name: "childStorage",
+    }
+  )
+);
 
 export default function useChild() {
   const [selectedChild, setSelectedChild] = useState<Child>();
