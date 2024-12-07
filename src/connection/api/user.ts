@@ -1,5 +1,6 @@
 import { Child, CreateChild } from "@/interface/Child";
 import httpRequest from "../axios";
+import { calculateWeeksSince } from "@/util/calculate";
 
 const api = httpRequest.api();
 
@@ -10,11 +11,14 @@ async function getChilds(userId: number) {
   return response.data.childern;
 }
 
-async function postChild(userId: number, createChild: CreateChild) {
-  const response = await api.post<CreateChild>(
-    `/users/${userId}/childs`,
-    createChild
-  );
+async function postChild(
+  userId: number,
+  createChild: Omit<CreateChild, "birthWeeks">
+) {
+  const response = await api.post<CreateChild>(`/users/${userId}/childs`, {
+    ...createChild,
+    birthWeeks: calculateWeeksSince(createChild.birthdate),
+  });
   return response.data;
 }
 
