@@ -1,5 +1,6 @@
 import HeaderDetail from "@/design/HeaderDetail";
 import { cn } from "fast-jsx/util";
+import moment from "moment-timezone";
 
 export default function RecordPostLayout({
   children,
@@ -15,9 +16,10 @@ export default function RecordPostLayout({
   const body = {
     displays: "flex flex-col flex-grow items-center justify-center",
   };
+  const now = moment().tz("Asia/Seoul").format("YYYY.MM.DD");
   return (
     <div className={cn(container)}>
-      <HeaderDetail title="작업필요" />
+      <HeaderDetail title={now} />
       <div className={cn(body)}>{children}</div>
     </div>
   );
