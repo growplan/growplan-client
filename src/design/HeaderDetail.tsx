@@ -15,7 +15,7 @@ export default function HeaderDetail({ title }: { title: string }) {
           onClick={() => window.history.back()}
           className="absolute left-5"
         />
-        <div>{title}</div>
+        <div className="font-bold">{title}</div>
       </div>
     </div>
   );
