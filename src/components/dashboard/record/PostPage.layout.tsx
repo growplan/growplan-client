@@ -10,8 +10,8 @@ export default function RecordPostLayout({
   const container = {
     positions: "relative",
     displays: "flex flex-col",
-    boundaries: "pt-[68px]",
-    sizes: "w-full min-h-screen ",
+    boundaries: "py-[68px]",
+    sizes: "w-full min-h-auto",
   };
   const body = {
     displays: "flex flex-col flex-grow items-center justify-center",

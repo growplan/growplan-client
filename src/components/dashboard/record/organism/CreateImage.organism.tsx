@@ -11,6 +11,7 @@ export default function CreateImage() {
         <div className="text-lg font-bold">사진/영상 추가</div>
         <div className="text-sm text-black-5">(최대 6개까지)</div>
       </div>
+      <div className="h-[234px] w-full"></div>
     </div>
   );
 }
