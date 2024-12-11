@@ -1,4 +1,5 @@
 import Notice from "./atom/Notice.atom";
+import ButtonContainerMolecule from "./molecule/ButtonContainer.molecule";
 import CreateDevelopment from "./organism/CreateDevelopment.organism";
 import CreateImage from "./organism/CreateImage.organism";
 import CreateScript from "./organism/CreateScript.organism";
@@ -18,6 +19,7 @@ export default function RecordPostPage() {
         <CreateImage />
         <CreateScript />
       </div>
+      <ButtonContainerMolecule title="제출하기" onClick={() => {}} />
     </RecordLayout>
   );
 }
