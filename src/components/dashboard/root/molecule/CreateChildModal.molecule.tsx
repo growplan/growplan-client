@@ -22,7 +22,7 @@ export default function CreateChildModal({
     mutationFn: (userId: number) =>
       userApi.child.post(userId, {
         name: "김메디",
-        birthdate: "2020-06-07",
+        birthdate: "2024-06-07",
         gender: "남자",
         bornHeight: 49.9,
         bornWeight: 3.3,

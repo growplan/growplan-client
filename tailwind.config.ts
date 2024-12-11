@@ -20,6 +20,7 @@ export default {
         ...theme.extend.colors,
         "blue-5": "#699BFF",
         "blue-4": "#90B8FF",
+        "blue-3": "#BDD3FF",
         "blue-1": "#EEF4FF",
         "black-2": "#ECEEF2",
         "black-4": "#AFB9CA",
