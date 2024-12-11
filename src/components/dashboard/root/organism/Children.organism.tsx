@@ -11,12 +11,12 @@ export default function Children() {
   };
 
   return (
-    <Action.Show actions={[["createChild", <CreateChildModal />]]}>
-      <div className={cn(container)}>
-        {childs?.map((children) => (
-          <ChildCard key={children.id} {...children} />
-        ))}
-      </div>
-    </Action.Show>
+    <div className={cn(container)}>
+      {!childs ? (
+        <div>등록이 필요합니다.</div>
+      ) : (
+        childs.map((children) => <ChildCard key={children.id} {...children} />)
+      )}
+    </div>
   );
 }
