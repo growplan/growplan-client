@@ -13,5 +13,5 @@ export interface CreateRecord {
     developmentTypes: DevelopmentType[];
     script: string;
   };
-  files: string[];
+  files: File[];
 }

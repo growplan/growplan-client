@@ -11,13 +11,16 @@ import { useMutation } from "react-query";
 import { userApi } from "@/connection";
 import useChild from "@/hook/useChild";
 import useSign from "@/hook/useSign";
+import { useNavigate } from "react-router-dom";
 
 export default function RecordPostPage() {
   const { sign } = useSign();
   const { store } = useChild();
   const { child } = store;
   const [developments, setDevelopments] = useState<DevelopmentType[]>([]);
+  const [files, setFiles] = useState<File[]>([]);
   const [script, setScript] = useState<string>();
+  const router = useNavigate();
   const container = {
     displays: "flex flex-col items-center gap-y-12",
     sizes: "w-full",
@@ -33,9 +36,10 @@ export default function RecordPostPage() {
             script: String(script),
             developmentTypes: developments,
           },
-          files: [],
+          files,
         },
       }),
+    onSuccess: () => router("/dashboard/records"),
   });
 
   return (
@@ -43,7 +47,7 @@ export default function RecordPostPage() {
       <div className={cn(container)}>
         <Notice />
         <CreateDevelopment state={[developments, setDevelopments]} />
-        <CreateImage />
+        <CreateImage state={[files, setFiles]} />
         <CreateScript state={[script, setScript]} />
       </div>
       <ButtonContainerMolecule

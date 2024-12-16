@@ -63,7 +63,7 @@ export default function RecordBox({
             </div>
           </div>
           <div className="flex gap-x-1.5">
-            {imgUrls.map((imgUrl) => (
+            {imgUrls.slice(0, 3).map((imgUrl) => (
               <img
                 src={imgUrl}
                 alt="img"
