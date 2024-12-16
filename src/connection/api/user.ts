@@ -68,14 +68,24 @@ async function postRecord({
   return response.data;
 }
 
+async function getSurveys(userId: number, childId: number) {
+  const response = await api.get<{ surveys: Record[] }>(
+    `/users/${userId}/childs/${childId}/surveys`
+  );
+  return response.data.surveys;
+}
+
 const userApi = {
   child: {
     get: getChilds,
     post: postChild,
-  },
-  record: {
-    get: getRecords,
-    post: postRecord,
+    record: {
+      get: getRecords,
+      post: postRecord,
+    },
+    survey: {
+      get: getSurveys,
+    },
   },
 };
 export default userApi;
