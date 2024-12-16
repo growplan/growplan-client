@@ -28,7 +28,7 @@ export default function RecordPostPage() {
   const { mutate: postRecord } = useMutation({
     mutationKey: ["createRecord"],
     mutationFn: ({ childId, userId }: { childId: number; userId: number }) =>
-      userApi.record.post({
+      userApi.child.record.post({
         userId,
         childId,
         createRecord: {
