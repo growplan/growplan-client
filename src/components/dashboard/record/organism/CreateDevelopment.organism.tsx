@@ -1,12 +1,21 @@
 import { cn } from "fast-jsx/util";
-import { contents } from "./Content";
+import { Content, contents } from "./Content";
 import { Button } from "fast-jsx";
+import { State } from "fast-jsx/interface";
+import { DevelopmentType } from "@/interface/Development";
 
-export default function CreateDevelopment() {
+interface CreateDevelopmentProps {
+  state: State<DevelopmentType[]>;
+}
+
+export default function CreateDevelopment({ state }: CreateDevelopmentProps) {
+  const [developments, setDevelopments] = state;
   const container = {
     displays: "flex flex-col gap-y-4",
     sizes: "w-full",
   };
+  const validate = (content: Content) =>
+    developments.includes(content.type as any) || developments.length === 6;
   return (
     <div className={cn(container)}>
       <div className="flex gap-x-1">
@@ -18,13 +27,27 @@ export default function CreateDevelopment() {
           <Button
             key={content.type}
             title={content.title}
-            onClick={() => {}}
+            onClick={() => {
+              if (content.type !== "all") {
+                if (developments.includes(content.type))
+                  return setDevelopments(
+                    developments.filter(
+                      (development) => development !== content.type
+                    )
+                  );
+                return setDevelopments([...developments, content.type]);
+              }
+              if (content.type === "all") {
+                if (developments.length === 6) return setDevelopments([]);
+                return setDevelopments(["CG", "GM", "LG", "LM", "SC", "SH"]);
+              }
+            }}
             option={{
               width: "w-[66px]",
               height: "h-[24px]",
               boundary: "rounded-full border-2 border-black-3",
               textColor: "text-black-5",
-              background: "bg-white",
+              background: validate(content) ? "bg-blue-5" : "bg-white",
               font: "text-[14px] font-bold",
             }}
           />

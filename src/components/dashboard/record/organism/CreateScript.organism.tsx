@@ -1,6 +1,12 @@
+import { State } from "fast-jsx/interface";
 import { cn } from "fast-jsx/util";
 
-export default function CreateScript() {
+interface CreateScriptProps {
+  state: State<string | undefined>;
+}
+
+export default function CreateScript({ state }: CreateScriptProps) {
+  const [script, setScript] = state;
   const container = {
     sizes: "w-full",
     displays: "flex flex-col gap-y-[21px]",
@@ -16,6 +22,8 @@ export default function CreateScript() {
       <textarea
         placeholder="자유롭게 작성해주세요."
         className="bg-blue-1 min-h-[143px] rounded-[5px] pt-[14px] px-3"
+        value={script}
+        onChange={(e) => setScript(e.target.value)}
       />
     </div>
   );
