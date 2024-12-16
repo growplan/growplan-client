@@ -8,3 +8,10 @@ export interface Record {
   isLiked: boolean;
   imageUrls: string[];
 }
+export interface CreateRecord {
+  requestDto: {
+    developmentTypes: DevelopmentType[];
+    script: string;
+  };
+  files: string[];
+}
