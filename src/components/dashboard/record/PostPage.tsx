@@ -5,21 +5,53 @@ import CreateImage from "./organism/CreateImage.organism";
 import CreateScript from "./organism/CreateScript.organism";
 import RecordLayout from "./PostPage.layout";
 import { cn } from "fast-jsx/util";
+import { DevelopmentType } from "@/interface/Development";
+import { useState } from "react";
+import { useMutation } from "react-query";
+import { userApi } from "@/connection";
+import useChild from "@/hook/useChild";
+import useSign from "@/hook/useSign";
 
 export default function RecordPostPage() {
+  const { sign } = useSign();
+  const { store } = useChild();
+  const { child } = store;
+  const [developments, setDevelopments] = useState<DevelopmentType[]>([]);
+  const [script, setScript] = useState<string>();
   const container = {
     displays: "flex flex-col items-center gap-y-12",
     sizes: "w-full",
   };
+  const { mutate: postRecord } = useMutation({
+    mutationKey: ["createRecord"],
+    mutationFn: ({ childId, userId }: { childId: number; userId: number }) =>
+      userApi.record.post({
+        userId,
+        childId,
+        createRecord: {
+          requestDto: {
+            script: String(script),
+            developmentTypes: developments,
+          },
+          files: [],
+        },
+      }),
+  });
+
   return (
     <RecordLayout>
       <div className={cn(container)}>
         <Notice />
-        <CreateDevelopment />
+        <CreateDevelopment state={[developments, setDevelopments]} />
         <CreateImage />
-        <CreateScript />
+        <CreateScript state={[script, setScript]} />
       </div>
-      <ButtonContainerMolecule title="제출하기" onClick={() => {}} />
+      <ButtonContainerMolecule
+        title="제출하기"
+        onClick={() =>
+          postRecord({ childId: Number(child?.id), userId: Number(sign?.id) })
+        }
+      />
     </RecordLayout>
   );
 }
