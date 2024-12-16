@@ -49,5 +49,11 @@ export default function useChild() {
     }
   }, [selectedChild]);
 
-  return { childs, selectedChild, setSelectedChild, store };
+  return {
+    childs,
+    selectedChild,
+    setSelectedChild,
+    store,
+    nowChild: store.child,
+  };
 }
