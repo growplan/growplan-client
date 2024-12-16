@@ -8,7 +8,7 @@ const {
 } = import.meta.env;
 
 const href = (provider: OAuthType) =>
-  [location.href.replace(/\/$/, ""), "auth", provider].join("/");
+  [location.href.replace(/\/$/, ""), "sign-in/auth", provider].join("/");
 const auth: Record<OAuthType, string> = {
   naver: [
     naverOrigin,
