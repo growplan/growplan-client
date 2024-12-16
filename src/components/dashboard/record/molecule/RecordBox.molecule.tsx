@@ -63,16 +63,21 @@ export default function RecordBox({
             </div>
           </div>
           <div className="flex gap-x-1.5">
-            {imgUrls.slice(0, 3).map((imgUrl) => (
-              <img
-                src={imgUrl}
-                alt="img"
-                className="w-[103px] h-[103px] object-cover"
-              />
-            ))}
-            <button className="text-[24px] rounded-[5px] w-[103px] h-[103px] bg-black-2 text-black-4 flex items-center justify-center">
-              +3
-            </button>
+            {imgUrls
+              .sort((a, b) => a.localeCompare(b))
+              .slice(0, 2)
+              .map((imgUrl) => (
+                <img
+                  src={imgUrl}
+                  alt="img"
+                  className="w-[103px] h-[103px] object-cover rounded-[5px] "
+                />
+              ))}
+            {imgUrls.length > 2 && (
+              <div className="text-[24px] rounded-[5px] w-[103px] h-[103px] bg-black-2 text-black-4 flex items-center justify-center">
+                {imgUrls.length - 2}+
+              </div>
+            )}
           </div>
           <div className="text-[13px] bg-blue-1 rounded-[5px] text-black-8 py-[10.5px] px-3">
             <LineBreaks texts={script} />

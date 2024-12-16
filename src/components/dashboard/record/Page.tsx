@@ -12,7 +12,8 @@ export default function RecordPage() {
   const { data: records } = useQuery({
     enabled: !!sign,
     queryKey: ["getRecords"],
-    queryFn: () => userApi.record.get(Number(sign?.id), Number(nowChild?.id)),
+    queryFn: () =>
+      userApi.child.record.get(Number(sign?.id), Number(nowChild?.id)),
   });
   return (
     <div>
