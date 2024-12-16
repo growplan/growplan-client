@@ -8,7 +8,7 @@ export default function Developments() {
   return (
     <div className={cn(container)}>
       {contents.map((content) => (
-        <button>{content.title}</button>
+        <button key={content.type}>{content.title}</button>
       ))}
     </div>
   );
