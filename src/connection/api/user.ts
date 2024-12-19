@@ -30,6 +30,13 @@ async function getRecords(userId: number, childId: number) {
   return response.data.records;
 }
 
+async function getRecord(userId: number, childId: number, recordId: number) {
+  const response = await api.get<Record>(
+    `/users/${userId}/childs/${childId}/records/${recordId}`
+  );
+  return response.data;
+}
+
 const postApi = httpRequest.api(undefined, {
   contentType: "multipart/form-data",
 });
@@ -81,6 +88,7 @@ const userApi = {
     post: postChild,
     record: {
       get: getRecords,
+      getById: getRecord,
       post: postRecord,
     },
     survey: {
