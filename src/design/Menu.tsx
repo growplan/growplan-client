@@ -37,7 +37,7 @@ export default function Menu() {
   const router = useNavigate();
   const location = useLocation();
   const container = {
-    positions: "fixed bottom-0 left-0",
+    positions: "fixed bottom-0 left-0 z-40",
     displays: "flex  gap-y-0.5",
     backgrounds: "bg-white",
     sizes: "w-full min-w-32",

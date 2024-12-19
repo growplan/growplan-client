@@ -3,7 +3,7 @@ import { cn } from "fast-jsx/util";
 
 export default function HeaderDetail({ title }: { title: string }) {
   const container = {
-    positions: "relative",
+    positions: "relative z-40",
     displays: "flex justify-center items-center",
     sizes: "h-[68px]",
     backgrounds: "bg-white",
