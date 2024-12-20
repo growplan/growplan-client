@@ -82,6 +82,27 @@ async function getSurveys(userId: number, childId: number) {
   return response.data.surveys;
 }
 
+interface PostSurvey {
+  id: number;
+  status: number;
+}
+
+async function postSurvey({
+  userId,
+  childId,
+  surveys,
+}: {
+  userId: number;
+  childId: number;
+  surveys: PostSurvey[];
+}) {
+  const response = await api.post(
+    `/users/${userId}/childs/${childId}/surveys`,
+    surveys
+  );
+  return response.data;
+}
+
 const userApi = {
   child: {
     get: getChilds,
@@ -93,6 +114,7 @@ const userApi = {
     },
     survey: {
       get: getSurveys,
+      post: postSurvey,
     },
   },
 };
