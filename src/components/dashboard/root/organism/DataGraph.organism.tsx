@@ -12,7 +12,7 @@ export default function DataGraph() {
     <Card>
       <TitleBox
         subtitle={[now, "기준"].join(" ")}
-        title="김메디님의 발달척도에요!"
+        title="김메디님의 발달척도예요!"
         descriptions={[
           "상위 75%는 정상군, 상위 25~50%는 경계군,",
           "하위 25%는 위험군으로 분류돼요.",
