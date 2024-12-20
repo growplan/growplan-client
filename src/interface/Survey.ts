@@ -1,10 +1,6 @@
-import { DevelopmentType } from "./Development";
-
 export interface Survey {
   surveyId: number;
-  childSurveyId: number;
+  childSurveyId: number | null;
   script: string;
-  status: number;
-  surveyDate: string;
-  developmentType: DevelopmentType;
+  status: number | null;
 }
