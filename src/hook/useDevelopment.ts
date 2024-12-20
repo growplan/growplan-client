@@ -8,7 +8,7 @@ export default function useDevelopment() {
   const { nowChild } = useChild();
   const { data: developmentInfo, isLoading } = useQuery({
     enabled: !!sign && !!nowChild,
-    queryKey: ["getDevelopments"],
+    queryKey: ["getDevelopments", nowChild],
     queryFn: () =>
       userApi.child.development.get(Number(sign?.id), Number(nowChild?.id)),
   });
