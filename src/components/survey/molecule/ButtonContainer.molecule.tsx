@@ -5,11 +5,13 @@ import { OnClick } from "fast-jsx/interface";
 interface ButtonContainerMoleculeProps {
   title: string;
   onClick: OnClick;
+  isClickable?: boolean;
 }
 
 export default function ButtonContainerMolecule({
   title,
   onClick,
+  isClickable = false,
 }: ButtonContainerMoleculeProps) {
   const container = {
     fixed: "fixed bottom-0",
@@ -32,7 +34,7 @@ export default function ButtonContainerMolecule({
           option={{
             width: "w-full",
             height: "h-[60px]",
-            background: "bg-blue-5",
+            background: isClickable ? "bg-blue-5" : "bg-blue-5/50",
             font: "text-lg",
           }}
         />

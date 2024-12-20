@@ -25,7 +25,8 @@ export default function SurveyLayout({
     <div className={cn(container)}>
       <HeaderDetail
         title={[
-          developmentTypeString[surveyType as DevelopmentType] + "체크리스트",
+          developmentTypeString[surveyType as DevelopmentType],
+          "체크리스트",
         ].join(" ")}
       />
       <div className={cn(body)}>{children}</div>
