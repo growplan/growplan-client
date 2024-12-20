@@ -22,11 +22,11 @@ export default function RecordPageById() {
       ),
   });
   const container = {
-    displays: "flex flex-col items-start gap-y-7",
+    displays: "relative flex flex-col items-start gap-y-7",
   };
 
   return (
-    <>
+    <div className="relative z-0">
       {record && (
         <RecordLayout>
           <div className={cn(container)}>
@@ -37,6 +37,6 @@ export default function RecordPageById() {
         </RecordLayout>
       )}
       <HeaderDetail title={`${record?.recordedDate}`} />
-    </>
+    </div>
   );
 }

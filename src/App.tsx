@@ -11,6 +11,7 @@ import { SurveyPage, SurveyResultPage } from "./app/surveys";
 import { AuthPage, SignInPage } from "./app/sign-in";
 import { MyPagePage } from "./app/dashboard/mypage";
 import { CenterPage } from "./app/dashboard/centers";
+import { ReportPage } from "./app/reports";
 
 export default function App() {
   return (
@@ -32,6 +33,9 @@ export default function App() {
         <Route path="/surveys/:surveyType">
           <Route index element={<SurveyPage />} />
           <Route path="result" element={<SurveyResultPage />} />
+        </Route>
+        <Route path="/reports">
+          <Route index element={<ReportPage />} />
         </Route>
         <Route path="/sign-in">
           <Route index element={<SignInPage />} />

@@ -1,4 +1,3 @@
-import HeaderDetail from "@/design/HeaderDetail";
 import { cn } from "fast-jsx/util";
 export default function RecordLayout({
   children,
@@ -6,10 +5,9 @@ export default function RecordLayout({
   children: React.ReactNode;
 }) {
   const container = {
-    positions: "relative z",
+    positions: "relative z-0",
+    paddings: "pt-[68px]",
     displays: "flex flex-col",
-    boundaries: "pt-[68px]",
-    sizes: "w-full min-h-screen ",
   };
   const body = {
     displays: "flex flex-col flex-grow items-center justify-center",

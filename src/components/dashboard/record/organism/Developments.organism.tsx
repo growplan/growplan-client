@@ -3,7 +3,9 @@ import { contents } from "./Content";
 
 export default function Developments() {
   const container = {
-    displays: "flex gap-x-4",
+    displays: "flex justify-between ",
+    sizes: "w-screen max-w-[480px] h-10",
+    boundaries: "px-3",
   };
   return (
     <div className={cn(container)}>

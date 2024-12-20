@@ -2,7 +2,7 @@ import { Record } from "@/interface/Record";
 
 export default function ImageBox({ record }: { record: Record }) {
   return (
-    <div>
+    <div className="z-0">
       <div className="flex">
         {record.imageUrls.slice(0, 1).map((url) => (
           <img

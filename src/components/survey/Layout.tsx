@@ -15,7 +15,6 @@ export default function SurveyLayout({
   const container = {
     positions: "relative",
     displays: "flex flex-col",
-    boundaries: "pt-[68px]",
     sizes: "w-full min-h-screen ",
   };
   const body = {

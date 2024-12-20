@@ -35,6 +35,7 @@ export default {
       },
       backgroundImage: {
         "gradient-to-b": "url('/images/survey/background.png')",
+        "report-background": "url('/images/report/background.png')",
       },
     },
   },

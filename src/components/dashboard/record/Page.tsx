@@ -18,8 +18,10 @@ export default function RecordPage() {
   return (
     <div>
       <Developments />
-      <Records records={records} />
-      <FloatButton />
+      <div className="mt-8 flex flex-col items-center">
+        <Records records={records} />
+        <FloatButton />
+      </div>
     </div>
   );
 }

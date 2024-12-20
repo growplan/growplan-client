@@ -3,8 +3,10 @@ import TitleBox from "@/design/TitleBox";
 import { Label } from "fast-jsx";
 import Graph from "fast-jsx/graph";
 import moment from "moment-timezone";
+import { useNavigate } from "react-router-dom";
 
 export default function DataGraph() {
+  const router = useNavigate();
   const now = moment().format("YYYY년 MM월 DD일");
   return (
     <Card>
@@ -43,9 +45,12 @@ export default function DataGraph() {
           }}
         />
       </div>
-      <div className="w-full h-[72px] flex justify-center items-center bg-[#EEF4FF] text-[#699BFF]">
+      <button
+        onClick={() => router("/reports")}
+        className="w-full h-[72px] flex justify-center items-center bg-[#EEF4FF] text-[#699BFF]"
+      >
         월간 레포트 확인하기
-      </div>
+      </button>
     </Card>
   );
 }
