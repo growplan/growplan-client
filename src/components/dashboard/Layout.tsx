@@ -20,7 +20,6 @@ export default function Layout({ children }: { children: ReactNode }) {
   const container = {
     displays: "flex gap-x-3.5 justify-center items-center",
     backgrounds: "bg-[#FAFCFF]",
-    boundaries: " pb-[156px]",
   };
   const body = {
     displays: "flex flex-col ",

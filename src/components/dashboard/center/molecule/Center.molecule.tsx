@@ -2,15 +2,26 @@ import Svg from "@/asset/Svg";
 import { Center } from "@/interface/Center";
 import { cn } from "fast-jsx/util";
 
-export default function CenterMolecule({ name, location, tags }: Center) {
+export default function CenterMolecule({
+  name,
+  images,
+  location,
+  tags,
+}: Center) {
   const container = {
     displays: "flex flex-col gap-y-4",
     sizes: "w-[353px] h-[280px] ",
   };
   return (
     <div className={cn(container)}>
-      <div className="h-[163px]">
-        <div className="h-[163px] w-[290px] bg-black-5" />
+      <div className="h-[163px] flex gap-5">
+        {images.map((image) => (
+          <img
+            key={image}
+            className="h-[163px] w-[290px] bg-black-5"
+            src={image}
+          />
+        ))}
       </div>
       <div className="flex flex-col">
         <div className="flex justify-between items-center">
