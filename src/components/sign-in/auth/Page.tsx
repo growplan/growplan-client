@@ -1,4 +1,5 @@
 import { signApi } from "@/connection";
+import Loading from "@/design/Loading";
 import { isOAuthType } from "@/interface/Sign";
 import useSignStore from "@/store/useSignStore";
 import { cn } from "fast-jsx/util";
@@ -32,9 +33,5 @@ export default function AuthPage() {
     displays: "flex items-center justify-center",
     sizes: "w-full min-h-screen",
   };
-  return (
-    <div className={cn(container)}>
-      <div className="text-4xl font-bold">LOADING...</div>
-    </div>
-  );
+  return <Loading.Screen />;
 }

@@ -2,6 +2,8 @@ import { Child, CreateChild } from "@/interface/Child";
 import httpRequest from "../axios";
 import { calculateWeeksSince } from "@/util/calculate";
 import { CreateRecord, Record } from "@/interface/Record";
+import { DevelopmentInfo, DevelopmentType } from "@/interface/Development";
+import { Survey } from "@/interface/Survey";
 
 const api = httpRequest.api();
 
@@ -75,9 +77,13 @@ async function postRecord({
   return response.data;
 }
 
-async function getSurveys(userId: number, childId: number) {
-  const response = await api.get<{ surveys: Record[] }>(
-    `/users/${userId}/childs/${childId}/surveys`
+async function getSurveys(
+  userId: number,
+  childId: number,
+  developmentType: DevelopmentType
+) {
+  const response = await api.get<{ surveys: Survey[] }>(
+    `/users/${userId}/childs/${childId}/surveys/${developmentType}`
   );
   return response.data.surveys;
 }
@@ -98,7 +104,14 @@ async function postSurvey({
 }) {
   const response = await api.post(
     `/users/${userId}/childs/${childId}/surveys`,
-    surveys
+    { surveys }
+  );
+  return response.data;
+}
+
+async function getDevelopments(userId: number, childId: number) {
+  const response = await api.get<DevelopmentInfo>(
+    `/users/${userId}/childs/${childId}/developments`
   );
   return response.data;
 }
@@ -107,6 +120,9 @@ const userApi = {
   child: {
     get: getChilds,
     post: postChild,
+    development: {
+      get: getDevelopments,
+    },
     record: {
       get: getRecords,
       getById: getRecord,
