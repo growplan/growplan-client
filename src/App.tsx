@@ -7,7 +7,7 @@ import {
   RecordPageById,
   RecordPostPage,
 } from "./app/dashboard/records";
-import { SurveyPage } from "./app/surveys";
+import { SurveyPage, SurveyResultPage } from "./app/surveys";
 import { AuthPage, SignInPage } from "./app/sign-in";
 import { MyPagePage } from "./app/dashboard/mypage";
 import { CenterPage } from "./app/dashboard/centers";
@@ -31,6 +31,7 @@ export default function App() {
         </Route>
         <Route path="/surveys/:surveyType">
           <Route index element={<SurveyPage />} />
+          <Route path="result" element={<SurveyResultPage />} />
         </Route>
         <Route path="/sign-in">
           <Route index element={<SignInPage />} />

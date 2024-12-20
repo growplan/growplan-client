@@ -1,7 +1,20 @@
 import { cn } from "fast-jsx/util";
 
 function Content() {
-  return <div>Loading...</div>;
+  const container = {
+    displays: "flex flex-col items-center gap-y-3.5",
+  };
+  return (
+    <div className={cn(container)}>
+      <img
+        src="/images/logos/growplan-symbol.png"
+        alt="growplan-symbol"
+        width={80}
+        height={80}
+      />
+      <div className="text-xl font-bold text-blue-5">Loading...</div>
+    </div>
+  );
 }
 
 function Loading() {
