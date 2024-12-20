@@ -1,6 +1,7 @@
 import { OAuthType } from "@/interface/Sign";
 
 const {
+  VITE_CLIENT_ORIGIN: clientOrigin,
   VITE_OAUTH_NAVER_ORIGIN: naverOrigin,
   VITE_OAUTH_NAVER_CLIENT_ID: naverClientId,
   VITE_OAUTH_KAKAO_ORIGIN: kakaoOrigin,
@@ -8,7 +9,7 @@ const {
 } = import.meta.env;
 
 const href = (provider: OAuthType) =>
-  [location.href.replace(/\/$/, ""), "auth", provider].join("/");
+  [clientOrigin, "sign-in", "auth", provider].join("/");
 const auth: Record<OAuthType, string> = {
   naver: [
     naverOrigin,
