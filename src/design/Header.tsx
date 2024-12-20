@@ -2,14 +2,20 @@ import { Button } from "fast-jsx";
 import { cn } from "fast-jsx/util";
 import { useLocation, useNavigate } from "react-router-dom";
 
-export function Header() {
+export function Header({
+  option,
+}: {
+  option?: {
+    noShadow?: boolean;
+  };
+}) {
   const container = {
     positions: "fixed top-0 left-0",
     displays: "flex justify-between items-center",
     backgrounds: "bg-white",
     sizes: "w-full h-16",
     boundaries: "px-4",
-    styles: "shadow-md",
+    styles: !option?.noShadow && "shadow-md",
   };
   const router = useNavigate();
   const location = useLocation();
