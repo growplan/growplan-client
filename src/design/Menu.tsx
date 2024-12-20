@@ -53,19 +53,22 @@ export default function Menu() {
     boundaries: "pt-2.5",
   });
   return (
-    <div className={cn(container)}>
-      {routes(location.pathname).map(({ title, href, icon }) => (
-        <button
-          key={href}
-          onClick={() => {
-            router(href);
-          }}
-          className={cn(button(location.pathname === href))}
-        >
-          {icon}
-          <div>{title}</div>
-        </button>
-      ))}
-    </div>
+    <>
+      <div className={cn(container)}>
+        {routes(location.pathname).map(({ title, href, icon }) => (
+          <button
+            key={href}
+            onClick={() => {
+              router(href);
+            }}
+            className={cn(button(location.pathname === href))}
+          >
+            {icon}
+            <div>{title}</div>
+          </button>
+        ))}
+      </div>
+      <div className="h-16 w-full" />
+    </>
   );
 }

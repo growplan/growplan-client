@@ -18,7 +18,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     matchPath({ path }, location.pathname)
   );
   const container = {
-    displays: "flex gap-x-3.5 justify-center items-center",
+    displays: "flex flex-col gap-x-3.5 justify-center items-center",
     backgrounds: "bg-[#FAFCFF]",
   };
   const body = {
@@ -28,8 +28,8 @@ export default function Layout({ children }: { children: ReactNode }) {
     <div>
       {!isHeaderException && <Header />}
       <div className={cn(container)}>
-        {!isException && <Dashboard.Menu />}
         <div className={cn(body)}>{children}</div>
+        {!isException && <Dashboard.Menu />}
       </div>
     </div>
   );

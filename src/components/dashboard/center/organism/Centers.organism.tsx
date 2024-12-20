@@ -7,7 +7,7 @@ export default function CentersOrganism() {
   const container = {
     displays: "flex flex-col items-center gap-y-10",
     pressures: "pt-5 pl-5",
-    sizes: "h-[calc(100vh-417px)] w-full",
+    sizes: "h-[calc(100vh-348px)] w-full",
     backgrounds: "bg-white",
     styles: "overflow-y-scroll",
   };
