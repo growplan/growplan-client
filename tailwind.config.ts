@@ -23,6 +23,7 @@ export default {
         "blue-3": "#BDD3FF",
         "blue-2": "#DAE6FF",
         "blue-1": "#EEF4FF",
+        "black-1": "#F6F7F9",
         "black-2": "#ECEEF2",
         "black-3": "#D4D9E3",
         "black-4": "#AFB9CA",

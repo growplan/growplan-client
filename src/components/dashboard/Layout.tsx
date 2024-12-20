@@ -9,8 +9,12 @@ export default function Layout({ children }: { children: ReactNode }) {
   const headerExceptions = [
     "/dashboard/records/:recordId",
     "/dashboard/centers",
+    "/dashboard/mypage",
   ];
-  const exceptions = ["/dashboard/records/post"];
+  const exceptions = [
+    "/dashboard/records/post",
+    "/dashboard/mypage/create-child",
+  ];
   const isHeaderException = [...headerExceptions, ...exceptions].some((path) =>
     matchPath({ path }, location.pathname)
   );
