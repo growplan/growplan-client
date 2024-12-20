@@ -116,6 +116,17 @@ async function getDevelopments(userId: number, childId: number) {
   return response.data;
 }
 
+async function getReports(
+  userId: number,
+  childId: number,
+  developmentType: DevelopmentType
+) {
+  const response = await api.get<{ summary: string }>(
+    `/users/${userId}/childs/${childId}/reports/${developmentType}`
+  );
+  return response.data;
+}
+
 const userApi = {
   child: {
     get: getChilds,
@@ -131,6 +142,9 @@ const userApi = {
     survey: {
       get: getSurveys,
       post: postSurvey,
+    },
+    report: {
+      get: getReports,
     },
   },
 };
