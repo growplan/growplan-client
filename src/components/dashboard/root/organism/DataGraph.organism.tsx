@@ -1,13 +1,21 @@
 import Card from "@/design/Card";
 import TitleBox from "@/design/TitleBox";
+import useDevelopment from "@/hook/useDevelopment";
+import {
+  DevelopmentType,
+  developmentTypeString,
+} from "@/interface/Development";
 import { Label } from "fast-jsx";
 import Graph from "fast-jsx/graph";
 import moment from "moment-timezone";
 import { useNavigate } from "react-router-dom";
+const devs: DevelopmentType[] = ["GM", "SH", "CG", "LG", "SC", "LM"];
 
 export default function DataGraph() {
   const router = useNavigate();
+  const { developmentInfo } = useDevelopment();
   const now = moment().format("YYYY년 MM월 DD일");
+
   return (
     <Card>
       <TitleBox
@@ -20,30 +28,31 @@ export default function DataGraph() {
       />
       <Graph.Bar
         dataSet={{
-          items: [
-            ["대근육", 0.8],
-            ["소근육", 0.6],
-            ["인지", 0.1],
-            ["언어", 0.4],
-            ["사회", 0.2],
-            ["자조", 0.3],
-          ],
+          items: devs.map((dev) => [
+            developmentTypeString[dev],
+            +(
+              (developmentInfo?.developments.find(
+                ({ developmentType }) => developmentType === dev
+              )?.score ?? 0) / 24
+            ).toFixed(2),
+          ]),
         }}
         option={{
           width: "w-full",
           height: "h-[218px]",
           pressure: "px-3.5",
-          barStyle: "bg-blue-500 rounded-md",
+          barStyle:
+            "w-[44px] bg-gradient-to-t to-[#699BFF] from-[#EEF4FF] rounded-md",
         }}
       />
       <div className="pt-3 px-3.5 w-full h-[63px]">
-        <Label
+        {/* <Label
           title="위험"
           option={{
             width: "w-[44px]",
             background: "bg-red-500",
           }}
-        />
+        /> */}
       </div>
       <button
         onClick={() => router("/reports")}

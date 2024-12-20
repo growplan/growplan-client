@@ -6,6 +6,7 @@ export default function DashboardPage() {
   const container = {
     display: "gap-y-8 flex flex-col",
     boundary: "rounded-md",
+    paddings: "pt-3.5",
   };
   return (
     <div className={cn(container)}>

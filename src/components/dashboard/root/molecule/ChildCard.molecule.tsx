@@ -4,7 +4,6 @@ import { calculateWeeksSince } from "@/util/calculate";
 import Svg from "@/asset/Svg";
 
 export default function ChildCard({ name, birthdate, gender }: Child) {
-  const colors = ["blue", "pink", "green", "yellow"];
   const container = {
     displays: "flex items-center gap-x-[26px]",
     sizes: "w-[353px] h-[139px]",

@@ -4,8 +4,12 @@ import TitleBox from "@/design/TitleBox";
 import { cn } from "fast-jsx/util";
 import CheckBoxMolecule from "../molecule/CheckBox.molecule";
 import { useNavigate } from "react-router-dom";
+import useChild from "@/hook/useChild";
+import useDevelopment from "@/hook/useDevelopment";
 
 export default function CheckList() {
+  const { nowChild } = useChild();
+  const { developmentInfo } = useDevelopment();
   const router = useNavigate();
   const body = {
     displays: "flex flex-col gap-y-2",
@@ -16,17 +20,17 @@ export default function CheckList() {
   return (
     <Card>
       <TitleBox
-        subtitle={"보통의 39개월생은?"}
-        title="39개월된 아이는 이렇게 행동해요!"
+        subtitle={`보통의 ${nowChild?.birthWeeks}개월생은?`}
+        title={`${nowChild?.birthWeeks}개월된 아이는 이렇게 행동해요!`}
         descriptions={["하단의 내용은 매일 자정마다 자동 새로고침 됩니다."]}
       />
       <div className={cn(body)}>
-        {surveys.map((survey) => (
+        {developmentInfo?.surveyTitles.map((survey) => (
           <CheckBoxMolecule
-            key={survey.id}
-            type={survey.type}
-            script={survey.script}
-            onClick={() => router(`/surveys/${survey.type}`)}
+            key={survey.developmentType}
+            type={survey.developmentType}
+            script={survey.title}
+            onClick={() => router(`/surveys/${survey.developmentType}`)}
           />
         ))}
       </div>

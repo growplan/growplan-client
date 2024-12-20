@@ -52,7 +52,7 @@ export default function ResultTemplate() {
               {[
                 `${nowChild?.name}님의`,
                 nowMonth,
-                "발달 레포트 결과예요.",
+                "월 발달 레포트 결과예요.",
               ].join(" ")}
             </div>
           </div>
