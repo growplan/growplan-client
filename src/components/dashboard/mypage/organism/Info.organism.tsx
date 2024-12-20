@@ -41,12 +41,11 @@ export default function Info() {
       </div>
       <div className="flex flex-col w-full gap-y-4  mt-[46px]">
         <div className="font-bold text-blue-5">우리 아이 관리</div>
-        <Exception onClick={() => router("/dashboard/mypage/create-child")} />
-        {/* {childs && childs.length === 0 ? (
-          <Exception />
+        {childs && childs.length === 0 ? (
+          <Exception onClick={() => router("/dashboard/mypage/create-child")} />
         ) : (
           childs?.map((child) => <div>{child.name}</div>)
-        )} */}
+        )}
       </div>
     </div>
   );

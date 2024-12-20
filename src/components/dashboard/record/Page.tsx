@@ -5,6 +5,8 @@ import Records from "./organism/Records.organism";
 import { userApi } from "@/connection";
 import useSign from "@/hook/useSign";
 import useChild from "@/hook/useChild";
+import { Action } from "fast-jsx";
+import Loading from "@/design/Loading";
 
 export default function RecordPage() {
   const { sign } = useSign();
@@ -16,12 +18,14 @@ export default function RecordPage() {
       userApi.child.record.get(Number(sign?.id), Number(nowChild?.id)),
   });
   return (
-    <div>
-      <Developments />
-      <div className="mt-8 flex flex-col items-center">
-        <Records records={records} />
-        <FloatButton />
+    <Action.Replace actions={[[!records, <Loading.Screen />]]}>
+      <div>
+        <Developments />
+        <div className="mt-8 flex flex-col items-center">
+          <Records records={records} />
+          <FloatButton />
+        </div>
       </div>
-    </div>
+    </Action.Replace>
   );
 }
