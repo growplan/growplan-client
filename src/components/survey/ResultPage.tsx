@@ -1,5 +1,5 @@
 import Loading from "@/design/Loading";
-import useDevelopment from "@/hook/useDevelopment";
+import { useDevelopmentByType } from "@/hook/useDevelopment";
 import { DevelopmentType } from "@/interface/Development";
 import { Action } from "fast-jsx";
 import { useParams } from "react-router-dom";
@@ -10,22 +10,22 @@ import ResultButtonContainer from "./organism/ResultButtonContainer.organism";
 
 export default function ResultPage() {
   const { surveyType } = useParams<{ surveyType: DevelopmentType }>();
-  const { developmentInfo, isLoading } = useDevelopment();
-  const result = developmentInfo?.developments.find(
-    (development) => development.developmentType === surveyType
+
+  const { development: result, isLoading } = useDevelopmentByType(
+    surveyType as DevelopmentType
   );
   return (
     <div>
       <Action.Replace actions={[[isLoading, <Loading.Screen />]]}>
-        {result && (
+        {surveyType && result && (
           <div>
             <Header
               option={{
                 noShadow: true,
               }}
             />
-            <ResultInfo result={result} />
-            <ResultAnalysis result={result} />
+            <ResultInfo result={result} type={surveyType} />
+            <ResultAnalysis result={result} type={surveyType} />
             <ResultButtonContainer />
           </div>
         )}
