@@ -1,6 +1,5 @@
 import useChild from "@/hook/useChild";
 import { Action } from "fast-jsx";
-import CreateChildModal from "../molecule/CreateChildModal.molecule";
 import ChildCard from "../molecule/ChildCard.molecule";
 import { cn } from "fast-jsx/util";
 import { OnClick } from "fast-jsx/interface";
@@ -14,25 +13,23 @@ export default function Children() {
   };
   return (
     <div className={cn(container)}>
-      <Action.Show actions={[["modal", <CreateChildModal />]]}>
-        <Action.Replace
-          actions={[
-            [!childs, <Exception title="로딩 중입니다..." />],
-            [
-              childs && childs.length === 0,
-              <Exception
-                title="아이를 추가해주세요"
-                onClick={() => router("/dashboard/mypage/create-child")}
-              />,
-            ],
-          ]}
-        >
-          {childs &&
-            childs.map((children) => (
-              <ChildCard key={children.id} {...children} />
-            ))}
-        </Action.Replace>
-      </Action.Show>
+      <Action.Replace
+        actions={[
+          [!childs, <Exception title="로딩 중입니다..." />],
+          [
+            childs && childs.length === 0,
+            <Exception
+              title="아이를 추가해주세요"
+              onClick={() => router("/dashboard/mypage/create-child")}
+            />,
+          ],
+        ]}
+      >
+        {childs &&
+          childs.map((children) => (
+            <ChildCard key={children.id} {...children} />
+          ))}
+      </Action.Replace>
     </div>
   );
 }

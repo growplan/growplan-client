@@ -1,4 +1,3 @@
-import { surveys } from "@/asset/development";
 import Card from "@/design/Card";
 import TitleBox from "@/design/TitleBox";
 import { cn } from "fast-jsx/util";
@@ -6,7 +5,7 @@ import CheckBoxMolecule from "../molecule/CheckBox.molecule";
 import { useNavigate } from "react-router-dom";
 import useChild from "@/hook/useChild";
 import useDevelopment from "@/hook/useDevelopment";
-import { calculateMonthsSince, calculateWeeksSince } from "@/util/calculate";
+import { calculateMonthsSince } from "@/util/calculate";
 
 export default function CheckList() {
   const { nowChild } = useChild();
