@@ -1,5 +1,6 @@
+import Svg from "@/asset/Svg";
 import auth from "@/config/auth";
-import { Button, LineBreaks } from "fast-jsx";
+import { LineBreaks } from "fast-jsx";
 import { cn } from "fast-jsx/util";
 
 const auths = [
@@ -41,18 +42,22 @@ export default function SignInPage() {
         </div>
         <div className="flex flex-col gap-y-2 w-full mt-auto">
           {auths.map(({ title, onClick, background, textColor }) => (
-            <Button
+            <button
               key={title}
-              title={title}
               onClick={onClick}
-              option={{
-                width: "w-full",
-                height: "h-[60px]",
+              className={cn(
+                "w-full h-[60px] rounded-[10px] flex gap-x-[15px] items-center justify-center leading-tight ",
                 background,
-                textColor,
-                font: "text-[16px]",
-              }}
-            />
+                textColor
+              )}
+            >
+              {title === "네이버로 로그인" ? (
+                <Svg.Auth.Naver />
+              ) : (
+                <Svg.Auth.Kakao />
+              )}
+              <div>{title}</div>
+            </button>
           ))}
         </div>
       </div>
