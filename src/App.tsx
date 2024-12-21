@@ -9,7 +9,11 @@ import {
 } from "./app/dashboard/records";
 import { SurveyPage, SurveyResultPage } from "./app/surveys";
 import { AuthPage, SignInPage } from "./app/sign-in";
-import { CreateChildPage, MyPagePage } from "./app/dashboard/mypage";
+import {
+  CreateChildPage,
+  CreateChildSuccessPage,
+  MyPagePage,
+} from "./app/dashboard/mypage";
 import { CenterPage } from "./app/dashboard/centers";
 import { ReportPage } from "./app/reports";
 
@@ -30,7 +34,10 @@ export default function App() {
           <Route path="centers" element={<CenterPage />} />
           <Route path="mypage">
             <Route index element={<MyPagePage />} />
-            <Route path="create-child" element={<CreateChildPage />} />
+            <Route path="create-child">
+              <Route index element={<CreateChildPage />} />
+              <Route path="success" element={<CreateChildSuccessPage />} />
+            </Route>
           </Route>
         </Route>
         <Route path="/surveys/:surveyType">

@@ -34,7 +34,7 @@ export default function CreateChildPage() {
         bornWeight: +bornWeight,
         isPremature: isPremature ?? false,
       }),
-    onSuccess: () => router("/dashboard"),
+    onSuccess: () => router("/dashboard/mypage/create-child/success"),
   });
 
   return (
