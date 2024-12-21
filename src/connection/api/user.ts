@@ -116,6 +116,24 @@ async function getDevelopments(userId: number, childId: number) {
   return response.data;
 }
 
+export interface DevelopmentByDevelopmentType {
+  surveyDate: string;
+  totalScore: number;
+  isRisk: boolean;
+  contents: string[];
+}
+
+async function getDevelopment(
+  userId: number,
+  childId: number,
+  developmentType: DevelopmentType
+) {
+  const response = await api.get<DevelopmentByDevelopmentType>(
+    `/users/${userId}/childs/${childId}/developments/${developmentType}`
+  );
+  return response.data;
+}
+
 async function getReports(
   userId: number,
   childId: number,
@@ -133,6 +151,7 @@ const userApi = {
     post: postChild,
     development: {
       get: getDevelopments,
+      getByType: getDevelopment,
     },
     record: {
       get: getRecords,
