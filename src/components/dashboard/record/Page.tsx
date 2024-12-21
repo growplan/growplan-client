@@ -7,8 +7,12 @@ import useSign from "@/hook/useSign";
 import useChild from "@/hook/useChild";
 import { Action } from "fast-jsx";
 import Loading from "@/design/Loading";
+import { DevelopmentType } from "@/interface/Development";
+import { useState } from "react";
 
 export default function RecordPage() {
+  const [selectedDevelopmentType, setSelectedDevelopmentType] =
+    useState<DevelopmentType>();
   const { sign } = useSign();
   const { nowChild } = useChild();
   const { data: records } = useQuery({
@@ -20,9 +24,14 @@ export default function RecordPage() {
   return (
     <Action.Replace actions={[[!records, <Loading.Screen />]]}>
       <div>
-        <Developments />
+        <Developments
+          state={[selectedDevelopmentType, setSelectedDevelopmentType]}
+        />
         <div className="mt-8 flex flex-col items-center">
-          <Records records={records} />
+          <Records
+            selectedDevelopmentType={selectedDevelopmentType}
+            records={records}
+          />
           <FloatButton />
         </div>
       </div>
