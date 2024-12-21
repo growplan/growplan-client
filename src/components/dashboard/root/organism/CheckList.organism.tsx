@@ -6,6 +6,7 @@ import CheckBoxMolecule from "../molecule/CheckBox.molecule";
 import { useNavigate } from "react-router-dom";
 import useChild from "@/hook/useChild";
 import useDevelopment from "@/hook/useDevelopment";
+import { calculateMonthsSince, calculateWeeksSince } from "@/util/calculate";
 
 export default function CheckList() {
   const { nowChild } = useChild();
@@ -18,22 +19,30 @@ export default function CheckList() {
   };
 
   return (
-    <Card>
-      <TitleBox
-        subtitle={`보통의 ${nowChild?.birthWeeks}개월생은?`}
-        title={`${nowChild?.birthWeeks}개월된 아이는 이렇게 행동해요!`}
-        descriptions={["하단의 내용은 매일 자정마다 자동 새로고침 됩니다."]}
-      />
-      <div className={cn(body)}>
-        {developmentInfo?.surveyTitles.map((survey) => (
-          <CheckBoxMolecule
-            key={survey.developmentType}
-            type={survey.developmentType}
-            script={survey.title}
-            onClick={() => router(`/surveys/${survey.developmentType}`)}
+    <>
+      {nowChild && (
+        <Card>
+          <TitleBox
+            subtitle={`보통의 ${calculateMonthsSince(
+              nowChild?.birthdate
+            )}개월생은?`}
+            title={`${calculateMonthsSince(
+              nowChild?.birthdate
+            )}개월된 아이는 이렇게 행동해요!`}
+            descriptions={["하단의 내용은 매일 자정마다 자동 새로고침 됩니다."]}
           />
-        ))}
-      </div>
-    </Card>
+          <div className={cn(body)}>
+            {developmentInfo?.surveyTitles.map((survey) => (
+              <CheckBoxMolecule
+                key={survey.developmentType}
+                type={survey.developmentType}
+                script={survey.title}
+                onClick={() => router(`/surveys/${survey.developmentType}`)}
+              />
+            ))}
+          </div>
+        </Card>
+      )}
+    </>
   );
 }

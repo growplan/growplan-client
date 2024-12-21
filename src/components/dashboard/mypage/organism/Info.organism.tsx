@@ -2,6 +2,7 @@ import Svg from "@/asset/Svg";
 import useChild from "@/hook/useChild";
 import useSign from "@/hook/useSign";
 import { Child } from "@/interface/Child";
+import { calculateMonthsSince } from "@/util/calculate";
 import { OnClick } from "fast-jsx/interface";
 import { cn } from "fast-jsx/util";
 import { useNavigate } from "react-router-dom";
@@ -73,7 +74,7 @@ function ChildBox({ name, birthWeeks, gender, birthdate }: Child) {
       <div className="flex flex-col justify-center items-center h-full bg-blue-5 text-white">
         <div>{name}</div>
         <div className="flex items-center gap-x-1 ">
-          <div>{birthWeeks}개월생</div>
+          <div>{calculateMonthsSince(birthdate)}개월생</div>
           {gender === "남자" ? (
             <Svg.Icon.Male background="#FFFFFF" />
           ) : (
