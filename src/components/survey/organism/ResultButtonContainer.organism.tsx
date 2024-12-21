@@ -77,7 +77,10 @@ export default function ResultButtonContainer() {
       </div>
       <Button
         title="홈으로 돌아가기"
-        onClick={() => router("/dashboard")}
+        onClick={() => {
+          router("/dashboard");
+          window.location.reload();
+        }}
         option={{
           width: "w-full",
           height: "h-[60px]",

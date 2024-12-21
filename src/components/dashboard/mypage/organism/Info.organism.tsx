@@ -1,5 +1,7 @@
+import Svg from "@/asset/Svg";
 import useChild from "@/hook/useChild";
 import useSign from "@/hook/useSign";
+import { Child } from "@/interface/Child";
 import { OnClick } from "fast-jsx/interface";
 import { cn } from "fast-jsx/util";
 import { useNavigate } from "react-router-dom";
@@ -44,8 +46,41 @@ export default function Info() {
         {childs && childs.length === 0 ? (
           <Exception onClick={() => router("/dashboard/mypage/create-child")} />
         ) : (
-          childs?.map((child) => <div>{child.name}</div>)
+          childs?.map((child) => <ChildBox key={child.id} {...child} />)
         )}
+      </div>
+    </div>
+  );
+}
+
+function ChildBox({ name, birthWeeks, gender, birthdate }: Child) {
+  const container = {
+    sizes: "w-[191px] h-[280px]",
+    styles: "overflow-hidden",
+    boundaries: "rounded-[10px]",
+    displays: "flex flex-col",
+  };
+  return (
+    <div className={cn(container)}>
+      <div className="bg-white w-full h-[175px] flex justify-center items-center">
+        <img
+          src="/images/dashboard/character-blue.png"
+          width={111}
+          height={107}
+          alt="character"
+        />
+      </div>
+      <div className="flex flex-col justify-center items-center h-full bg-blue-5 text-white">
+        <div>{name}</div>
+        <div className="flex items-center gap-x-1 ">
+          <div>{birthWeeks}개월생</div>
+          {gender === "남자" ? (
+            <Svg.Icon.Male background="#FFFFFF" />
+          ) : (
+            <Svg.Icon.Female background="#FFFFFF" />
+          )}
+        </div>
+        <div className="text-blue-3">{birthdate}</div>
       </div>
     </div>
   );

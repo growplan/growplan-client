@@ -1,9 +1,16 @@
-import analysis, { Status } from "@/asset/analysis";
+import analysis from "@/asset/analysis";
 import Svg from "@/asset/Svg";
-import { Development } from "@/interface/Development";
+import { DevelopmentByDevelopmentType } from "@/connection/api/user";
+import { DevelopmentType } from "@/interface/Development";
 import { cn } from "fast-jsx/util";
 
-export default function ResultAnalysis({ result }: { result: Development }) {
+export default function ResultAnalysis({
+  result,
+  type,
+}: {
+  type: DevelopmentType;
+  result: DevelopmentByDevelopmentType;
+}) {
   const container = {
     displays: "flex flex-col items-center",
     paddings: "pt-[58px]",
@@ -12,20 +19,18 @@ export default function ResultAnalysis({ result }: { result: Development }) {
   return (
     <div className={cn(container)}>
       <div className="flex font-bold">
-        <div className="text-blue-5">{result.score}점</div>
+        <div className="text-blue-5">{result.totalScore}점</div>
         <div>으로 {statusString}를 보이고 있어요</div>
       </div>
       <div className="text-sm">{statusString}가 계속되면...</div>
       <div className="flex flex-col mt-8 gap-y-5">
-        {analysis[result.isRisk ? "bad" : "good"][result.developmentType].map(
-          (analysis) => (
-            <Analysis
-              key={analysis.id}
-              script={analysis.script}
-              isRisk={result.isRisk}
-            />
-          )
-        )}
+        {analysis[result.isRisk ? "bad" : "good"][type].map((analysis) => (
+          <Analysis
+            key={analysis.id}
+            script={analysis.script}
+            isRisk={result.isRisk}
+          />
+        ))}
       </div>
     </div>
   );

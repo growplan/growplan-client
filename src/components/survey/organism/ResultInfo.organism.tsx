@@ -1,9 +1,19 @@
 import { cn } from "fast-jsx/util";
-import { Development, developmentTypeString } from "@/interface/Development";
+import {
+  DevelopmentType,
+  developmentTypeString,
+} from "@/interface/Development";
 import moment from "moment-timezone";
 import useChild from "@/hook/useChild";
+import { DevelopmentByDevelopmentType } from "@/connection/api/user";
 
-export default function ResultInfo({ result }: { result: Development }) {
+export default function ResultInfo({
+  result,
+  type,
+}: {
+  result: DevelopmentByDevelopmentType;
+  type: DevelopmentType;
+}) {
   const maxScore = 24;
   const { nowChild } = useChild();
   const container = {
@@ -18,7 +28,7 @@ export default function ResultInfo({ result }: { result: Development }) {
       <div className="font-bold">
         {[
           `${nowChild?.name}님의`,
-          developmentTypeString[result.developmentType],
+          developmentTypeString[type],
           "영역 결과",
         ].join(" ")}
       </div>
@@ -29,7 +39,7 @@ export default function ResultInfo({ result }: { result: Development }) {
         alt="character"
       />
       <div className="flex leading-tignt bg-blue-1 rounded-[5px] text-sm w-[58px] h-[25px] items-center justify-center text-blue-5">
-        <div className="font-bold">{result.score}</div>
+        <div className="font-bold">{result.totalScore}</div>
         <div>/</div>
         <div>{maxScore}</div>
       </div>
