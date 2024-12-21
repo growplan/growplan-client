@@ -22,7 +22,7 @@ export default function Children() {
               childs && childs.length === 0,
               <Exception
                 title="아이를 추가해주세요"
-                onClick={() => router("/mypage")}
+                onClick={() => router("/dashboard/mypage/create-child")}
               />,
             ],
           ]}
