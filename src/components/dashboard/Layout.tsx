@@ -23,8 +23,9 @@ export default function Layout({ children }: { children: ReactNode }) {
     matchPath({ path }, location.pathname)
   );
   const container = {
-    displays: "flex flex-col gap-x-3.5 justify-center items-center",
+    displays: "flex flex-col gap-x-3.5  items-center",
     backgrounds: "bg-[#FAFCFF]",
+    sizes: "w-full min-h-screen",
     styles: "scrollbar-hidden",
   };
   const body = {
