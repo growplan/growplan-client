@@ -14,17 +14,23 @@ export default function CenterMolecule({
   };
   return (
     <div className={cn(container)}>
-      <div className="h-[163px] flex gap-5">
-        {images.map((image) => (
-          <img
-            key={image}
-            className="h-[163px] w-[290px] bg-black-5"
-            src={image}
-          />
-        ))}
+      <div className="flex w-full overflow-x-scroll h-[163px]  gap-5">
+        {images.length > 0 ? (
+          images.map((image) => (
+            <img
+              key={image}
+              className="h-[163px] w-[290px] bg-black-5"
+              src={image}
+            />
+          ))
+        ) : (
+          <div className="w-full h-[163px] flex justify-center items-center bg-black-1">
+            이미지가 없습니다.
+          </div>
+        )}
       </div>
-      <div className="flex flex-col">
-        <div className="flex justify-between items-center">
+      <div className="flex flex-col items-start">
+        <div className="flex justify-between items-center w-full">
           <div className="text-lg font-bold truncate">{name}</div>
           <Svg.Icon.Heart />
         </div>
