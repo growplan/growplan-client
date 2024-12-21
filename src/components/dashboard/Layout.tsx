@@ -25,6 +25,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   const container = {
     displays: "flex flex-col gap-x-3.5 justify-center items-center",
     backgrounds: "bg-[#FAFCFF]",
+    styles: "scrollbar-hidden",
   };
   const body = {
     displays: "flex flex-col ",

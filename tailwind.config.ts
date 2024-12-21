@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 import config from "fast-jsx/tailwind.config";
 const { theme, plugins } = config;
+import type { PluginAPI } from "tailwindcss/types/config";
 
 export default {
   content: [
@@ -39,8 +40,35 @@ export default {
         "gradient-to-b": "url('/images/survey/background.png')",
         "report-background": "url('/images/report/background.png')",
       },
+      scrollbar: {
+        hidden: "hidden",
+      },
     },
   },
-  plugins,
+  plugins: [
+    ...plugins,
+    function ({ addUtilities }: PluginAPI) {
+      addUtilities(
+        {
+          ".scrollbar-hidden::-webkit-scrollbar": {
+            display: "none", // For WebKit browsers
+          },
+          ".scrollbar-hidden": {
+            "-ms-overflow-style": "none", // For Internet Explorer and Edge
+            "scrollbar-width": "none", // For Firefox
+          },
+          ".page-break": {
+            "@media print": {
+              "page-break-before": "always",
+            },
+          },
+        },
+        {
+          respectPrefix: false,
+          respectImportant: false,
+        }
+      );
+    },
+  ],
   darkMode: "selector",
 } satisfies Config;
