@@ -1,4 +1,4 @@
-type Tag =
+export type CenterTag =
   | "언어"
   | "놀이"
   | "심리"
@@ -19,5 +19,5 @@ export interface Center {
   isScraped: boolean;
   location: string;
   name: string;
-  tags: Tag[];
+  tags: CenterTag[];
 }

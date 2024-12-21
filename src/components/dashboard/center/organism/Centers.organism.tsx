@@ -1,7 +1,7 @@
 import useCenter from "@/hook/useCenter";
 import { cn } from "fast-jsx/util";
 import CenterMolecule from "../molecule/Center.molecule";
-import { Center } from "@/interface/Center";
+import { Center, CenterTag } from "@/interface/Center";
 import { State } from "fast-jsx/interface";
 
 export default function CentersOrganism({
@@ -26,7 +26,9 @@ export default function CentersOrganism({
       {centers
         ?.filter(
           (center) =>
-            center.name.includes(keyword) || center.location.includes(keyword)
+            center.name.includes(keyword) ||
+            center.location.includes(keyword) ||
+            center.tags.includes(keyword as CenterTag)
         )
         .map((center) => (
           <button onClick={() => setCenter(center)}>
