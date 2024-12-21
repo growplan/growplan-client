@@ -29,9 +29,5 @@ export default function AuthPage() {
   useEffect(() => {
     mutate();
   }, []);
-  const container = {
-    displays: "flex items-center justify-center",
-    sizes: "w-full min-h-screen",
-  };
   return <Loading.Screen />;
 }

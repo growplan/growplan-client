@@ -1,10 +1,12 @@
+import Svg from "@/asset/Svg";
 import { userApi } from "@/connection";
 import HeaderDetail from "@/design/HeaderDetail";
 import useSign from "@/hook/useSign";
+import { calculateMonthsSince } from "@/util/calculate";
 import { Button } from "fast-jsx";
 import { State } from "fast-jsx/interface";
 import { cn } from "fast-jsx/util";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useMutation } from "react-query";
 import { useNavigate } from "react-router-dom";
 
@@ -18,6 +20,9 @@ export default function CreateChildPage() {
   const [bornWeight, setBornWeight] = useState<string>("");
   const [isPremature, setIsPremature] = useState<boolean>();
 
+  useEffect(() => {
+    console.log(birthdate);
+  }, [birthdate]);
   const { mutate: postChild } = useMutation({
     mutationKey: ["createChild"],
     mutationFn: (userId: number) =>
@@ -35,6 +40,7 @@ export default function CreateChildPage() {
   return (
     <>
       <div className="flex flex-col gap-y-7 pt-24">
+        <div>아이의 정보를 입력해주세요!</div>
         <Input title="이름" placeholder="이름" state={[name, setName]} />
         <div>
           <div className="h-[30px] flex items-center text-sm">성별</div>
@@ -71,22 +77,36 @@ export default function CreateChildPage() {
         </div>
         <Input
           title="태어날 때의 키"
+          type="number"
           placeholder="숫자로 입력"
           state={[bornHeight, setBornHeight]}
         />
         <Input
           title="태어날 때의 몸무게"
+          type="number"
           placeholder="숫자로 입력"
           state={[bornWeight, setBornWeight]}
         />
         <Input
-          title="생년월일"
-          placeholder="예) 2024-06-07"
+          title={[
+            "생년월일",
+            birthdate
+              ? "(생후 " + calculateMonthsSince(birthdate) + "개월 차)"
+              : undefined,
+          ]
+            .filter((v) => v)
+            .join(" ")}
+          type="date"
+          placeholder="생년월일 입력"
           state={[birthdate, setBirthdate]}
         />
         <div>
           <div className="h-[30px] flex items-center text-sm">
             우리 아이가 이른둥이인가요?
+          </div>
+          <div className="flex items-center text-xs gap-1.25 text-black-7 pb-1">
+            <Svg.Icon.Question />
+            <div>이른둥이는 임신 37주 이전에 태어난 아기를 말해요.</div>
           </div>
           <div className="flex w-[353px] gap-x-[5px]">
             <Button
@@ -143,7 +163,16 @@ export default function CreateChildPage() {
             option={{
               width: "w-full",
               height: "h-[50px]",
-              background: "bg-blue-5",
+              background:
+                !sign ||
+                !name ||
+                !birthdate ||
+                gender === undefined ||
+                !bornHeight ||
+                !bornWeight ||
+                isPremature === undefined
+                  ? "bg-blue-3"
+                  : "bg-blue-5",
               font: "text-lg",
             }}
           />
@@ -157,10 +186,12 @@ export default function CreateChildPage() {
 function Input({
   title,
   placeholder,
+  type = "text",
   state,
 }: {
   title?: string;
   placeholder?: string;
+  type?: "text" | "number" | "date" | "password";
   state: State<string>;
 }) {
   const [value, setValue] = state;
@@ -177,6 +208,7 @@ function Input({
       <div className="h-[30px] flex items-center text-sm">{title}</div>
       <div className={cn(container)}>
         <input
+          type={type}
           placeholder={placeholder ?? "입력해주세요."}
           onChange={(e) => setValue(e.target.value)}
           className="

@@ -29,6 +29,7 @@ export default {
         "black-4": "#AFB9CA",
         "black-5": "#8393AD",
         "black-6": "#647693",
+        "black-7": "#4F5E7A",
         "black-8": "#414D63",
         "kakao-yellow": "#FEE500",
         "kakao-brown": "#3C1E1E",
