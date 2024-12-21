@@ -16,7 +16,7 @@ export default function CreateImage({ state }: CreateImageProps) {
     <div className={cn(container)}>
       <div className="flex items-center gap-x-1">
         <div className="text-lg font-bold">사진/영상 추가</div>
-        <div className="text-sm text-black-5">(최대 6개까지)</div>
+        <div className="text-sm text-black-5">(최대 5개까지)</div>
       </div>
       <div className="flex gap-x-3.5 h-[234px] w-full mt-4">
         <ImageBox state={[files, setFiles]} />
@@ -65,9 +65,22 @@ function ImageBox({ state }: ImageBoxProps) {
           alt="image"
           className="w-full h-full object-cover"
         />
-      ) : (
-        <div className="w-full h-full bg-black-2" />
-      )}
+      ) : files.length < 5 ? (
+        <div className="flex justify-center items-center w-full h-full bg-black-2">
+          <svg
+            width="17"
+            height="16"
+            viewBox="0 0 17 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6.54688 0.15625H10.4375V15.75H6.54688V0.15625ZM0.6875 6.01562H16.3125V9.90625H0.6875V6.01562Z"
+              fill="#8393AD"
+            />
+          </svg>
+        </div>
+      ) : null}
       <input
         ref={ref}
         type="file"

@@ -45,9 +45,12 @@ export default function CreateDevelopment({ state }: CreateDevelopmentProps) {
             option={{
               width: "w-[66px]",
               height: "h-[24px]",
-              boundary: "rounded-full border-2 border-black-3",
-              textColor: "text-black-5",
-              background: validate(content) ? "bg-blue-5" : "bg-white",
+              boundary: [
+                "rounded-full border-2 ",
+                validate(content) ? "border-blue-1" : "border-black-3",
+              ].join(" "),
+              textColor: validate(content) ? "text-blue-5" : "text-black-5",
+              background: validate(content) ? "bg-blue-1" : "bg-white",
               font: "text-[14px] font-bold",
             }}
           />
