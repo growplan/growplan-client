@@ -54,7 +54,7 @@ export default function Info() {
   );
 }
 
-function ChildBox({ name, birthWeeks, gender, birthdate }: Child) {
+function ChildBox({ name, gender, birthdate }: Child) {
   const container = {
     sizes: "w-[191px] h-[280px]",
     styles: "overflow-hidden",
